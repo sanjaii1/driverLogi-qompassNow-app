@@ -1,12 +1,12 @@
 import { Box } from "@mui/material";
 import React from "react";
 import Header from "./componets/header";
-// import Button from '../components/Button';
+import Body from "./componets/mainLayout";
 
 const Home = () => (
   <Box>
     <Header />
-
+    <Body />
   </Box>
 );
 

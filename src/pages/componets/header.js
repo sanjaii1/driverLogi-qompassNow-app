@@ -2,7 +2,7 @@ import { Grid, Typography, Box } from "@mui/material";
 import React from "react";
 import styles from "../style";
 import { useTheme } from "@mui/material/styles";
-import Logo from "../../assets/icons/logo.png"
+import Logo from "../../assets/icons/logo.png";
 import IconButton from "@mui/material/IconButton";
 import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
@@ -13,7 +13,7 @@ export default function Header() {
   const style = styles(theme);
 
   return (
-    <>
+    <Box>
       <Grid container sx={{ ...style.mainHeadGrid, justifyContent: "center" }}>
         <Grid
           item
@@ -36,7 +36,6 @@ export default function Header() {
             />
             <Box display="flex" flexDirection="column">
               {" "}
-              {/* Add margin for spacing */}
               <Typography
                 sx={{ fontSize: "18px", fontWeight: 600, color: "#095EF8" }}
               >
@@ -133,6 +132,6 @@ export default function Header() {
           <Typography>Welcome guest</Typography>
         </Grid>
       </Grid>
-    </>
+    </Box>
   );
 }
