@@ -9,12 +9,14 @@ import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import Divider from "@mui/material/Divider";
+import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 
 export default function Aside() {
   return (
     <Box>
       <Box>
-        <Accordion>
+        <Accordion sx={{ background: "#095ef812" }}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1-content"
@@ -27,26 +29,144 @@ export default function Aside() {
                 width: "100%",
               }}
             >
-              <Box>Order Summary</Box>
-              <Box>Total distance 56km</Box>
+              <Box>
+                <Typography sx={{ fontSize: "18px", fontWeight: 550 }}>
+                  Order Summary
+                </Typography>
+              </Box>
+              <Box>
+                <Typography sx={{ fontSize: "14px", fontWeight: 550 }}>
+                  Total distance 56km
+                </Typography>
+              </Box>
             </Box>
           </AccordionSummary>
+          <Divider />
           <AccordionDetails>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+            <Typography
+              sx={{ fontSize: "14px", whiteSpace: "nowrap", fontWeight: 550 }}
+            >
+              Pickup Address (
+              <span style={{ color: "#3F48CC", cursor: "pointer" }}>Edit</span>)
+            </Typography>
+            <Typography sx={{ fontSize: "13px", fontWeight: 400 }}>
+              Burger St, near Police Staticnort Nagar, Fort Kachi, Koch, Kerala
+              682001, India Pickup Contact details
+            </Typography>
           </AccordionDetails>
           <AccordionDetails>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+            <Typography
+              sx={{ fontSize: "14px", whiteSpace: "nowrap", fontWeight: 550 }}
+            >
+              Pickup Contact details
+            </Typography>
+            <Typography sx={{ fontSize: "13px", fontWeight: 400 }}>
+              lack Goe +91 9876543210 | jark goe15215@gmail.com
+            </Typography>
           </AccordionDetails>
           <AccordionDetails>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+            <Typography
+              sx={{ fontSize: "14px", whiteSpace: "nowrap", fontWeight: 550 }}
+            >
+              Pickup Time & Date
+            </Typography>
+            <Typography sx={{ fontSize: "13px", fontWeight: 400 }}>
+              24/07/2024 | 16:00-20:00
+            </Typography>
+          </AccordionDetails>
+          <Divider />
+          <AccordionDetails>
+            <Typography
+              sx={{ fontSize: "14px", whiteSpace: "nowrap", fontWeight: 550 }}
+            >
+              Delivery Address (
+              <span style={{ color: "#3F48CC", cursor: "pointer" }}>Edit</span>)
+            </Typography>
+            <Typography sx={{ fontSize: "13px", fontWeight: 400 }}>
+              6/40, Mattanchery Cochin, Jew Town Rd, Emakulam, Kochi, Kerala
+              682202, India
+            </Typography>
+          </AccordionDetails>
+          <AccordionDetails>
+            <Typography
+              sx={{ fontSize: "14px", whiteSpace: "nowrap", fontWeight: 550 }}
+            >
+              Delivery Contact details
+            </Typography>
+            <Typography sx={{ fontSize: "13px", fontWeight: 400 }}>
+              Napier +91 9876543210 | napier 5215@gmail.com
+            </Typography>
+          </AccordionDetails>
+          <Divider />
+          <AccordionDetails>
+            <Typography
+              sx={{ fontSize: "14px", whiteSpace: "nowrap", fontWeight: 550 }}
+            >
+              Product category
+            </Typography>
+            <Box
+              sx={{
+                border: "1px solid #095ef836",
+                padding: "2px 3px 2px 3px",
+                width: "fit-content",
+                backgroundColor: "#095ef836",
+                borderRadius: "4px",
+                marginTop: "5px",
+              }}
+            >
+              <Typography sx={{ fontSize: "13px", fontWeight: 400 }}>
+                Electronics
+              </Typography>
+            </Box>
+          </AccordionDetails>
+          <Divider />
+          <AccordionDetails>
+            <Typography
+              sx={{ fontSize: "14px", whiteSpace: "nowrap", fontWeight: 550 }}
+            >
+              Load category
+            </Typography>
+            <Box
+              sx={{
+                border: "1px solid #095ef836",
+                padding: "2px 3px 2px 3px",
+                width: "fit-content",
+                backgroundColor: "#095ef836",
+                borderRadius: "4px",
+                marginTop: "5px",
+              }}
+            >
+              <Typography sx={{ fontSize: "13px", fontWeight: 400 }}>
+                Carton Box
+              </Typography>
+            </Box>
+          </AccordionDetails>
+          <Divider />
+          <AccordionDetails
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          >
+            <Typography sx={{ fontSize: "12px" }}>
+              <ErrorOutlineIcon
+                sx={{
+                  verticalAlign: "middle",
+                  marginRight: 1,
+                  fontSize: "16px",
+                }}
+              />
+              The estimated cost may vary from the final shipping cost based on
+              the packaged dimensions & weight measured before delivery.
+            </Typography>
           </AccordionDetails>
         </Accordion>
       </Box>
       <Box sx={{ marginTop: "20px" }}>
-        <Accordion>
+        <Accordion sx={{ background: "#095ef812" }}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1-content"
@@ -59,13 +179,24 @@ export default function Aside() {
                 width: "100%",
               }}
             >
-              <Box>Payment Summary</Box>
-              <Box>Total Weight 284kg</Box>
+              <Box>
+                <Typography sx={{ fontSize: "18px", fontWeight: 550 }}>
+                  {" "}
+                  Payment Summary{" "}
+                </Typography>
+              </Box>
+              <Box>
+                {" "}
+                <Typography sx={{ fontSize: "14px", fontWeight: 550 }}>
+                  {" "}
+                  Total Weight 284kg{" "}
+                </Typography>
+              </Box>
             </Box>
           </AccordionSummary>
+          <Divider />
           <AccordionDetails>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+            <Box></Box>
           </AccordionDetails>
           <AccordionDetails>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
@@ -81,10 +212,13 @@ export default function Aside() {
           padding: "10px",
           display: "flex",
           justifyContent: "space-between",
+          background: "#095ef812",
         }}
       >
-        <Typography>Total Weight</Typography>
-        <Typography>000kg</Typography>
+        <Typography sx={{ fontSize: "16px", fontWeight: 550 }}>
+          Total Weight
+        </Typography>
+        <Typography sx={{ fontSize: "14px" }}>000kg</Typography>
       </Box>
       <Box
         sx={{
@@ -94,10 +228,13 @@ export default function Aside() {
           padding: "10px",
           display: "flex",
           justifyContent: "space-between",
+          background: "#095ef836",
         }}
       >
-        <Typography>SUB Total</Typography>
-        <Typography>0000kg</Typography>
+        <Typography sx={{ fontSize: "16px", fontWeight: 550 }}>
+          SUB Total
+        </Typography>
+        <Typography sx={{ fontSize: "14px" }}>0000kg</Typography>
       </Box>
 
       <Box
