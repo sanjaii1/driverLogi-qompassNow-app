@@ -1,6 +1,10 @@
 import React from "react";
 import { Box, Button, Grid, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
+import Accordion from "@mui/material/Accordion";
+
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
 
 export default function OrderManagement() {
   return (
@@ -19,7 +23,7 @@ export default function OrderManagement() {
         }}
       >
         <Grid container alignItems="center">
-          <Grid item xs={12} sm={6} md={6} lg={6} xl={6} >
+          <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
             <Box
               display="flex"
               justifyContent={{ xs: "center", sm: "flex-start" }}
@@ -42,10 +46,296 @@ export default function OrderManagement() {
           </Grid>
         </Grid>
       </Box>
-      <Grid container>
-        <Grid item>1</Grid>
-        <Grid item>2</Grid>
-      </Grid>
+      <Box sx={{ padding: "10px" }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+            <Box
+              sx={{
+                padding: "10px",
+                borderRadius: "4px",
+                boxShadow: 1,
+                backgroundColor: "#095ef812",
+              }}
+            >
+              <Grid container>
+                <Grid item xs={12} sm={6} md={6} lg={8} xl={8}>
+                  <Typography sx={{ color: "#000000", fontWeight: 550 }}>
+                    Product category
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
+                  <Box
+                    sx={{
+                      border: "1px solid #00000063",
+                      borderRadius: "2px",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Typography
+                      sx={{
+                        flex: 2,
+                        padding: "2px",
+                        backgroundColor: "#fff",
+                        minHeight: "24px",
+                      }}
+                    ></Typography>
+
+                    <Typography
+                      onClick={() => console.log("Typography clicked")}
+                      sx={{
+                        flex: 1,
+                        backgroundColor: "#095ef821",
+                        padding: "2px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        cursor: "pointer",
+                      }}
+                    >
+                      Change
+                    </Typography>
+                  </Box>
+                </Grid>
+              </Grid>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+            {" "}
+            <Box
+              sx={{
+                padding: "10px",
+                borderRadius: "4px",
+                boxShadow: 1,
+                backgroundColor: "#095ef812",
+              }}
+            >
+              <Grid container>
+                <Grid item xs={12} sm={6} md={6} lg={8} xl={8}>
+                  <Typography sx={{ color: "#000000", fontWeight: 550 }}>
+                    Load type
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
+                  <Box
+                    sx={{
+                      border: "1px solid #00000063",
+                      borderRadius: "2px",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Typography
+                      sx={{
+                        flex: 2,
+                        padding: "2px",
+                        backgroundColor: "#fff",
+                        minHeight: "24px",
+                      }}
+                    ></Typography>
+
+                    <Typography
+                      onClick={() => console.log("Typography clicked")}
+                      sx={{
+                        flex: 1,
+                        backgroundColor: "#095ef821",
+                        padding: "2px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        cursor: "pointer",
+                      }}
+                    >
+                      Change
+                    </Typography>
+                  </Box>
+                </Grid>
+              </Grid>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+            <Box
+              sx={{
+                marginTop: "20px",
+                borderRadius: "4px",
+                boxShadow: 1,
+                padding: "10px",
+                display: "flex",
+                justifyContent: "space-between",
+                backgroundColor: "#095ef812",
+              }}
+            >
+              <Grid container spacing={3}>
+                <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      padding: "5px",
+                    }}
+                  >
+                    <Typography
+                      sx={{
+                        marginRight: 1,
+                        fontSize: "14px",
+                        fontWeight: 550,
+                        color: "#000000",
+                      }}
+                    >
+                      Volumetric
+                    </Typography>
+
+                    <Grid container spacing={1} sx={{ flexGrow: 2 }}>
+                      <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+                        <input
+                          // type="number"
+                          placeholder="Length"
+                          style={{
+                            width: "100%",
+                            padding: "5px",
+                            border: "1px solid #ccc",
+                          }}
+                        />
+                      </Grid>
+                      <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+                        <input
+                          // type="number"
+                          placeholder="Breadth"
+                          style={{
+                            width: "100%",
+                            padding: "5px",
+                            border: "1px solid #ccc",
+                          }}
+                        />
+                      </Grid>
+                      <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+                        <input
+                          placeholder="Height"
+                          style={{
+                            width: "100%",
+                            padding: "5px",
+                            border: "1px solid #ccc",
+                          }}
+                        />
+                      </Grid>
+                    </Grid>
+                  </Box>
+                  <Box>
+                    <Typography
+                      sx={{
+                        fontSize: "10px",
+                        padding: "0px 0px 0px 5px",
+                        color: "#0000008f",
+                      }}
+                    >
+                      Lenght + Breadth + Height should be at-least 15 cm
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={6} md={6} lg={3.5} xl={3.5}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      padding: "5px",
+                    }}
+                  >
+                    <Typography
+                      sx={{
+                        marginRight: 1,
+                        whiteSpace: "nowrap",
+                        fontSize: "14px",
+                        fontWeight: 550,
+                        color: "#000000",
+                      }}
+                    >
+                      Actual weight
+                    </Typography>
+
+                    <Grid container spacing={1} sx={{ flexGrow: 1 }}>
+                      <Grid item xs={8} sm={8} md={8}>
+                        <input
+                          type="number"
+                          placeholder="Weight"
+                          style={{
+                            width: "100%",
+                            padding: "5px",
+                            border: "1px solid #ccc",
+                          }}
+                        />
+                      </Grid>
+                      <Grid item xs={4} sm={4} md={4}>
+                        <input
+                          type="number"
+                          style={{
+                            width: "100%",
+                            padding: "5px",
+                            border: "1px solid #ccc",
+                          }}
+                        />
+                      </Grid>
+                    </Grid>
+                  </Box>
+                  <Box>
+                    <Typography
+                      sx={{
+                        fontSize: "10px",
+                        padding: "0px 0px 0px 5px",
+                        color: "#0000008f",
+                      }}
+                    >
+                      Packaged weight should be at-least 50 grms
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={6} md={6} lg={2.5} xl={2.5}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      padding: "5px",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    <Typography
+                      sx={{
+                        fontSize: "14px",
+                        fontWeight: 550,
+                        color: "#000000",
+                        marginRight: 1,
+                      }}
+                    >
+                      Invoice NO
+                    </Typography>
+
+                    <input
+                      type="number"
+                      placeholder="00000000"
+                      style={{
+                        width: "100%",
+                        padding: "5px",
+                        border: "1px solid #ccc",
+                      }}
+                    />
+                  </Box>
+                </Grid>
+
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  md={6}
+                  lg={2}
+                  xl={2}
+                  sx={{ ml: "auto", textAlign: "right" }}
+                >
+                  <Button>add order</Button>
+                </Grid>
+              </Grid>
+            </Box>
+          </Grid>
+        </Grid>
+      </Box>
     </Box>
   );
 }

@@ -18,14 +18,14 @@ export default function Header() {
         <Grid
           item
           xs={12}
-          sm={12}
-          md={12}
+          sm={5.5}
+          md={6}
           lg={8}
           xl={8}
           sx={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "start",
+            justifyContent: { xs: "center", sm: "start" },
           }}
         >
           <Box display="flex" alignItems="center">
@@ -34,7 +34,16 @@ export default function Header() {
               src={Logo}
               style={{ height: "50px", width: "50px", padding: "0px" }}
             />
-            <Box display="flex" flexDirection="column">
+            <Box
+              display="flex"
+              flexDirection="column"
+              sx={{
+                position: "relative",
+                top: "8px",
+                right: "15px",
+                fontFamily: "sans-serif",
+              }}
+            >
               {" "}
               <Typography
                 sx={{ fontSize: "18px", fontWeight: 600, color: "#095EF8" }}
@@ -42,7 +51,12 @@ export default function Header() {
                 Qompass
               </Typography>
               <Typography
-                sx={{ fontSize: "10px", textAlign: "right", color: "#095EF8" }}
+                sx={{
+                  fontSize: "10px",
+                  textAlign: "right",
+                  color: "#095EF8",
+                  fontWeight: 600,
+                }}
               >
                 Now
               </Typography>
@@ -52,8 +66,8 @@ export default function Header() {
         <Grid
           item
           xs={12}
-          sm={12}
-          md={12}
+          sm={2.5}
+          md={2.5}
           lg={1.5}
           xl={1.5}
           sx={{
@@ -64,18 +78,20 @@ export default function Header() {
         >
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <IconButton>
-              <PhoneInTalkIcon sx={{ color: "#095EF8" }} />
+              <PhoneInTalkIcon sx={{ color: "#095EF8", fontSize: "16px" }} />
             </IconButton>
-            <Typography sx={{ fontSize: "14px" }}>917736172777</Typography>
+            <Typography sx={{ fontSize: "14px", color: "#0000008f" }}>
+              917736172777
+            </Typography>
           </Box>
         </Grid>
         <Grid
           item
           xs={12}
-          sm={12}
-          md={12}
-          lg={1.5}
-          xl={1.5}
+          sm={3.6}
+          md={3.1}
+          lg={2.1}
+          xl={2.1}
           sx={{
             display: "flex",
             alignItems: "center",
@@ -84,9 +100,9 @@ export default function Header() {
         >
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <IconButton>
-              <MailOutlineIcon sx={{ color: "#095EF8" }} />
+              <MailOutlineIcon sx={{ color: "#095EF8", fontSize: "16px" }} />
             </IconButton>
-            <Typography sx={{ fontSize: "14px" }}>
+            <Typography sx={{ fontSize: "14px", color: "#0000008f" }}>
               Itsupport@Driverlogistics.In
             </Typography>
           </Box>
@@ -94,10 +110,10 @@ export default function Header() {
         <Grid
           item
           xs={12}
-          sm={12}
-          md={12}
-          lg={1}
-          xl={1}
+          sm={0.4}
+          md={0.4}
+          lg={0.4}
+          xl={0.4}
           sx={{
             display: "flex",
             alignItems: "center",
@@ -112,13 +128,17 @@ export default function Header() {
       <Grid
         container
         sx={{
-          ...style.mainHeadGrid,
+          background: "white",
+          borderBottom:'1px solid #5855555c',
           justifyContent: "space-between",
           alignItems: "center",
+          padding:'5px 20px 5px 20px'
         }}
       >
         <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-          <Typography>Order Management System</Typography>
+          <Typography sx={{ fontSize: "14px", color: "#0000008f" }}>
+            Order Management System
+          </Typography>
         </Grid>
         <Grid
           item
@@ -129,7 +149,7 @@ export default function Header() {
           xl={6}
           sx={{ textAlign: "right" }}
         >
-          <Typography>Welcome guest</Typography>
+          <Typography sx={{ fontSize: "14px", color: "#0000008f" }}>Welcome guest</Typography>
         </Grid>
       </Grid>
     </Box>
