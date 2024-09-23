@@ -6,11 +6,19 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
-import { Typography } from "@mui/material";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableRow,
+  Typography,
+} from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Divider from "@mui/material/Divider";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 
 export default function Aside() {
   return (
@@ -195,13 +203,148 @@ export default function Aside() {
             </Box>
           </AccordionSummary>
           <Divider />
-          <AccordionDetails>
-            <Box></Box>
-          </AccordionDetails>
-          <AccordionDetails>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </AccordionDetails>
+
+          <TableContainer>
+            <Table>
+              <TableBody>
+                <TableRow>
+                  <TableCell
+                    sx={{
+                      borderRight: "1px solid #00000080",
+                      width: "50%",
+                      fontSize: "13px",
+                      fontWeight: 550,
+                    }}
+                  >
+                    Total Shipment Count
+                  </TableCell>
+                  <TableCell sx={{ width: "50%", fontSize: "13px" }}>
+                    10.00
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell
+                    sx={{
+                      borderRight: "1px solid #00000080",
+                      width: "50%",
+                      fontSize: "13px",
+                      fontWeight: 550,
+                    }}
+                  >
+                    Base freight amount
+                  </TableCell>
+                  <TableCell sx={{ width: "50%", fontSize: "13px" }}>
+                    10.00
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell
+                    sx={{
+                      borderRight: "1px solid #00000080",
+                      width: "50%",
+                      fontSize: "13px",
+                      fontWeight: 550,
+                    }}
+                  >
+                    Accessorial freight amount
+                  </TableCell>
+                  <TableCell sx={{ width: "50%", fontSize: "13px" }}>
+                    546kg
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell
+                    sx={{
+                      borderRight: "1px solid #00000080",
+                      width: "50%",
+                      fontSize: "13px",
+                      fontWeight: 550,
+                    }}
+                  >
+                    Docket Charge
+                  </TableCell>
+                  <TableCell sx={{ width: "50%", fontSize: "13px" }}>
+                   <CurrencyRupeeIcon /> 2016.00
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell
+                    sx={{
+                      borderRight: "1px solid #00000080",
+                      width: "50%",
+                      fontSize: "13px",
+                      fontWeight: 550,
+                    }}
+                  >
+                    Stationary Charge
+                  </TableCell>
+                  <TableCell sx={{ width: "50%", fontSize: "13px" }}>
+                    50.00
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell
+                    sx={{
+                      borderRight: "1px solid #00000080",
+                      width: "50%",
+                      fontSize: "13px",
+                      fontWeight: 550,
+                    }}
+                  >
+                    Handling Charge (per Box)
+                  </TableCell>
+                  <TableCell sx={{ width: "50%", fontSize: "13px" }}>
+                    500.00
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell
+                    sx={{
+                      borderRight: "1px solid #00000080",
+                      width: "50%",
+                      fontSize: "13px",
+                      fontWeight: 550,
+                    }}
+                  >
+                    GST 8%
+                  </TableCell>
+                  <TableCell sx={{ width: "50%", fontSize: "13px" }}>
+                    200.00
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell
+                    sx={{
+                      borderRight: "1px solid #00000080",
+                      width: "50%",
+                      fontSize: "13px",
+                      fontWeight: 550,
+                    }}
+                  >
+                    SGST 8%
+                  </TableCell>
+                  <TableCell sx={{ width: "50%", fontSize: "13px" }}>
+                    200.00
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell
+                    sx={{
+                      borderRight: "1px solid #00000080",
+                      width: "50%",
+                      fontSize: "13px",
+                      fontWeight: 550,
+                    }}
+                  >
+                    IGST 8%
+                  </TableCell>
+                  <TableCell sx={{ width: "50%", fontSize: "13px" }}>
+                    00.00
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
         </Accordion>
       </Box>
       <Box
