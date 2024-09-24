@@ -1,6 +1,5 @@
 import React from "react";
 import Accordion from "@mui/material/Accordion";
-import AccordionActions from "@mui/material/AccordionActions";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -18,9 +17,24 @@ import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Divider from "@mui/material/Divider";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
-import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+import PickupAddress from "./pickupAddress";
+import DeliveryAddress from "./deliveryAddress";
+import BookConfirm from "./bookConfirm";
 
 export default function Aside() {
+  const [openPickUp, setOpenPickUp] = React.useState(false);
+  const [openDelivery, setOpenDelivery] = React.useState(false);
+  const [openBookConfirm, setOpenBookConfirm] = React.useState(false);
+
+  const handleOpenPickUP = () => setOpenPickUp(true);
+  const handleClosePickUp = () => setOpenPickUp(false);
+
+  const handleOpenDelivery = () => setOpenDelivery(true);
+  const handleCloseDelivery = () => setOpenDelivery(false);
+
+  const handleOpenBookConfirm = () => setOpenBookConfirm(true);
+  const handleCloseBookConfirm = () => setOpenBookConfirm(false);
+
   return (
     <Box>
       <Box>
@@ -54,8 +68,13 @@ export default function Aside() {
             <Typography
               sx={{ fontSize: "14px", whiteSpace: "nowrap", fontWeight: 550 }}
             >
-              Pickup Address (
-              <span style={{ color: "#3F48CC", cursor: "pointer" }}>Edit</span>)
+              Pickup Address {''}
+              <span
+                style={{ color: "#3F48CC", cursor: "pointer" }}
+                onClick={handleOpenPickUP}
+              >
+                (Edit)
+              </span>
             </Typography>
             <Typography sx={{ fontSize: "13px", fontWeight: 400 }}>
               Burger St, near Police Staticnort Nagar, Fort Kachi, Koch, Kerala
@@ -87,8 +106,13 @@ export default function Aside() {
             <Typography
               sx={{ fontSize: "14px", whiteSpace: "nowrap", fontWeight: 550 }}
             >
-              Delivery Address (
-              <span style={{ color: "#3F48CC", cursor: "pointer" }}>Edit</span>)
+              Delivery Address {''}
+              <span
+                style={{ color: "#3F48CC", cursor: "pointer" }}
+                onClick={handleOpenDelivery}
+              >
+                (Edit)
+              </span>
             </Typography>
             <Typography sx={{ fontSize: "13px", fontWeight: 400 }}>
               6/40, Mattanchery Cochin, Jew Town Rd, Emakulam, Kochi, Kerala
@@ -264,7 +288,7 @@ export default function Aside() {
                     Docket Charge
                   </TableCell>
                   <TableCell sx={{ width: "50%", fontSize: "13px" }}>
-                   <CurrencyRupeeIcon /> 2016.00
+                     2016.00
                   </TableCell>
                 </TableRow>
                 <TableRow>
@@ -402,10 +426,18 @@ export default function Aside() {
           variant="contained"
           color="success"
           sx={{ padding: "5px 30px 5px 30px", marginTop: "10px" }}
+          onClick={handleOpenBookConfirm}
         >
           Pay INR 2976.52
         </Button>
       </Box>
+
+      <PickupAddress open={openPickUp} handleClose={handleClosePickUp} />
+      <DeliveryAddress open={openDelivery} handleClose={handleCloseDelivery} />
+      <BookConfirm
+        open={openBookConfirm}
+        handleClose={handleCloseBookConfirm}
+      />
     </Box>
   );
 }

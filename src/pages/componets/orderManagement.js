@@ -1,11 +1,37 @@
 import React, { useState } from "react";
 import { Box, Button, Grid, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import Electroniucs from "../../assets/image/electronic.png";
+import Electronics from "../../assets/image/electronic.png";
+import Consumables from "../../assets/image/consumables.png";
+import Sports from "../../assets/image/cricket.png";
+import Truck from "../../assets/image/truck.png";
+import Clothes from "../../assets/image/hanger.png";
+import HouseHold from "../../assets/image/sofa.png";
+import CartonBox from "../../assets/image/carton.png";
+import WoodenBox from "../../assets/image/wooden.png";
+import Plastic from "../../assets/image/plastic.png";
 
 export default function OrderManagement() {
   const [selectProductCateActive, setSelectProductCateActive] = useState(false);
   const [selectLoadTypeActive, setSelectLoadTypeActive] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedLoadItem, setSelectedLoadItem] = useState(null);
+
+  const productItem = [
+    { name: "Consumables", src: Consumables },
+    { name: "Electronics", src: Electronics },
+    { name: "Sports equipment", src: Sports },
+    { name: "Clothes Item", src: Clothes },
+    { name: "Household Item", src: HouseHold },
+    { name: "Other", src: Truck },
+  ];
+
+  const LoadItem = [
+    { name: "Carton Box", src: CartonBox },
+    { name: "Wooden Box", src: WoodenBox },
+    { name: "Plastic", src: Plastic },
+    { name: "Other", src: Truck },
+  ];
 
   return (
     <Box
@@ -41,7 +67,19 @@ export default function OrderManagement() {
                 sm: "flex-end",
               }}
             >
-              <Button variant="contained" endIcon={<AddIcon />}>
+              <Button
+                sx={{
+                  textTransform: "capitalize",
+                  backgroundColor: "#4276ed",
+                  color: "#fff",
+                  fontSize: "13px",
+                  "&:hover": {
+                    backgroundColor: "#4276ed",
+                    opacity: 1,
+                  },
+                }}
+                endIcon={<AddIcon />}
+              >
                 New Order
               </Button>
             </Box>
@@ -118,265 +156,59 @@ export default function OrderManagement() {
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                     <Grid container spacing={1}>
-                      <Grid
-                        item
-                        xs={6}
-                        sm={3}
-                        md={3}
-                        lg={2}
-                        xl={2}
-                        container
-                        justifyContent="center"
-                        alignItems="center"
-                      >
-                        <Box
-                          sx={{
-                            width: "110px",
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            border: "1px solid #5855555c",
-                            padding: "10px",
-                            borderRadius: "4px",
-                          }}
+                      {productItem.map((item, index) => (
+                        <Grid
+                          item
+                          xs={6}
+                          sm={3}
+                          md={3}
+                          lg={2}
+                          xl={2}
+                          container
+                          justifyContent="center"
+                          alignItems="center"
+                          key={index}
                         >
-                          <img
-                            alt="Consumables"
-                            src={Electroniucs}
-                            style={{
-                              height: "50px",
-                              width: "50px",
-                              marginBottom: "5px",
-                            }}
-                          />
-                          <Typography
+                          <Box
+                            onClick={() => setSelectedItem(item.name)}
                             sx={{
-                              fontSize: "12px",
-                              fontWeight: 550,
-                              color: "#000000",
+                              width: "110px",
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              border: "1px solid #5855555c",
+                              padding: "10px",
+                              borderRadius: "4px",
+                              backgroundColor:
+                                selectedItem === item.name
+                                  ? "#095ef812"
+                                  : "transparent",
+                              cursor: "pointer",
                             }}
                           >
-                            Consumables
-                          </Typography>
-                        </Box>
-                      </Grid>
-                      <Grid
-                        item
-                        xs={6}
-                        sm={3}
-                        md={3}
-                        lg={2}
-                        xl={2}
-                        container
-                        justifyContent="center"
-                        alignItems="center"
-                      >
-                        <Box
-                          sx={{
-                            width: "110px",
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            border: "1px solid #5855555c",
-                            padding: "10px",
-                            borderRadius: "4px",
-                          }}
-                        >
-                          <img
-                            alt="Consumables"
-                            src={Electroniucs}
-                            style={{
-                              height: "50px",
-                              width: "50px",
-                              marginBottom: "5px",
-                            }}
-                          />
-                          <Typography
-                            sx={{
-                              fontSize: "12px",
-                              fontWeight: 550,
-                              color: "#000000",
-                            }}
-                          >
-                            Electronics
-                          </Typography>
-                        </Box>
-                      </Grid>
-                      <Grid
-                        item
-                        xs={6}
-                        sm={3}
-                        md={3}
-                        lg={2}
-                        xl={2}
-                        container
-                        justifyContent="center"
-                        alignItems="center"
-                      >
-                        <Box
-                          sx={{
-                            width: "110px",
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            border: "1px solid #5855555c",
-                            padding: "10px",
-                            borderRadius: "4px",
-                          }}
-                        >
-                          <img
-                            alt="Consumables"
-                            src={Electroniucs}
-                            style={{
-                              height: "50px",
-                              width: "50px",
-                              marginBottom: "5px",
-                            }}
-                          />
-                          <Typography
-                            sx={{
-                              fontSize: "12px",
-                              fontWeight: 550,
-                              color: "#000000",
-                              whiteSpace: "nowrap",
-                            }}
-                          >
-                            Sports equipment
-                          </Typography>
-                        </Box>
-                      </Grid>
-                      <Grid
-                        item
-                        xs={6}
-                        sm={3}
-                        md={3}
-                        lg={2}
-                        xl={2}
-                        container
-                        justifyContent="center"
-                        alignItems="center"
-                      >
-                        <Box
-                          sx={{
-                            width: "110px",
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            border: "1px solid #5855555c",
-                            padding: "10px",
-                            borderRadius: "4px",
-                          }}
-                        >
-                          <img
-                            alt="Consumables"
-                            src={Electroniucs}
-                            style={{
-                              height: "50px",
-                              width: "50px",
-                              marginBottom: "5px",
-                            }}
-                          />
-                          <Typography
-                            sx={{
-                              fontSize: "12px",
-                              fontWeight: 550,
-                              color: "#000000",
-                            }}
-                          >
-                            Clothes Item
-                          </Typography>
-                        </Box>
-                      </Grid>
-                      <Grid
-                        item
-                        xs={6}
-                        sm={3}
-                        md={3}
-                        lg={2}
-                        xl={2}
-                        container
-                        justifyContent="center"
-                        alignItems="center"
-                      >
-                        <Box
-                          sx={{
-                            width: "110px",
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            border: "1px solid #5855555c",
-                            padding: "10px",
-                            borderRadius: "4px",
-                          }}
-                        >
-                          <img
-                            alt="Consumables"
-                            src={Electroniucs}
-                            style={{
-                              height: "50px",
-                              width: "50px",
-                              marginBottom: "5px",
-                            }}
-                          />
-                          <Typography
-                            sx={{
-                              fontSize: "12px",
-                              fontWeight: 550,
-                              color: "#000000",
-                            }}
-                          >
-                            Household Item
-                          </Typography>
-                        </Box>
-                      </Grid>
-                      <Grid
-                        item
-                        xs={6}
-                        sm={3}
-                        md={3}
-                        lg={2}
-                        xl={2}
-                        container
-                        justifyContent="center"
-                        alignItems="center"
-                      >
-                        <Box
-                          sx={{
-                            width: "110px",
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            border: "1px solid #5855555c",
-                            padding: "10px",
-                            borderRadius: "4px",
-                          }}
-                        >
-                          <img
-                            alt="Consumables"
-                            src={Electroniucs}
-                            style={{
-                              height: "50px",
-                              width: "50px",
-                              marginBottom: "5px",
-                            }}
-                          />
-                          <Typography
-                            sx={{
-                              fontSize: "12px",
-                              fontWeight: 550,
-                              color: "#000000",
-                            }}
-                          >
-                            Other
-                          </Typography>
-                        </Box>
-                      </Grid>
+                            <img
+                              alt={item.name}
+                              src={item.src}
+                              style={{
+                                height: "50px",
+                                width: "50px",
+                                marginBottom: "5px",
+                              }}
+                            />
+                            <Typography
+                              sx={{
+                                fontSize: "12px",
+                                fontWeight: 550,
+                                color: "#000000",
+                                whiteSpace: "nowrap",
+                              }}
+                            >
+                              {item.name}
+                            </Typography>
+                          </Box>
+                        </Grid>
+                      ))}
                     </Grid>
                   </Grid>
                 </Grid>
@@ -385,7 +217,6 @@ export default function OrderManagement() {
           </Grid>
 
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-            {" "}
             {selectLoadTypeActive === false ? (
               <Box
                 sx={{
@@ -453,180 +284,63 @@ export default function OrderManagement() {
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                     <Grid container spacing={1}>
-                      <Grid
-                        item
-                        xs={6}
-                        sm={3}
-                        md={3}
-                        lg={2}
-                        xl={2}
-                        container
-                        justifyContent="center"
-                        alignItems="center"
-                      >
-                        <Box
-                          sx={{
-                            width: "110px",
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            border: "1px solid #5855555c",
-                            padding: "10px",
-                            borderRadius: "4px",
-                          }}
+                      {LoadItem.map((item, index) => (
+                        <Grid
+                          item
+                          xs={6}
+                          sm={3}
+                          md={3}
+                          lg={2}
+                          xl={2}
+                          container
+                          justifyContent="center"
+                          alignItems="center"
+                          key={index}
                         >
-                          <img
-                            alt="Consumables"
-                            src={Electroniucs}
-                            style={{
-                              height: "50px",
-                              width: "50px",
-                              marginBottom: "5px",
-                            }}
-                          />
-                          <Typography
+                          <Box
+                            onClick={() => setSelectedLoadItem(item.name)}
                             sx={{
-                              fontSize: "12px",
-                              fontWeight: 550,
-                              color: "#000000",
+                              width: "110px",
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              border: "1px solid #5855555c",
+                              padding: "10px",
+                              borderRadius: "4px",
+                              backgroundColor:
+                                selectedLoadItem === item.name
+                                  ? "#095ef812"
+                                  : "transparent",
+                              cursor: "pointer",
                             }}
                           >
-                            Consumables
-                          </Typography>
-                        </Box>
-                      </Grid>
-                      <Grid
-                        item
-                        xs={6}
-                        sm={3}
-                        md={3}
-                        lg={2}
-                        xl={2}
-                        container
-                        justifyContent="center"
-                        alignItems="center"
-                      >
-                        <Box
-                          sx={{
-                            width: "110px",
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            border: "1px solid #5855555c",
-                            padding: "10px",
-                            borderRadius: "4px",
-                          }}
-                        >
-                          <img
-                            alt="Consumables"
-                            src={Electroniucs}
-                            style={{
-                              height: "50px",
-                              width: "50px",
-                              marginBottom: "5px",
-                            }}
-                          />
-                          <Typography
-                            sx={{
-                              fontSize: "12px",
-                              fontWeight: 550,
-                              color: "#000000",
-                            }}
-                          >
-                            Electronics
-                          </Typography>
-                        </Box>
-                      </Grid>
-                      <Grid
-                        item
-                        xs={6}
-                        sm={3}
-                        md={3}
-                        lg={2}
-                        xl={2}
-                        container
-                        justifyContent="center"
-                        alignItems="center"
-                      >
-                        <Box
-                          sx={{
-                            width: "110px",
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            border: "1px solid #5855555c",
-                            padding: "10px",
-                            borderRadius: "4px",
-                          }}
-                        >
-                          <img
-                            alt="Consumables"
-                            src={Electroniucs}
-                            style={{
-                              height: "50px",
-                              width: "50px",
-                              marginBottom: "5px",
-                            }}
-                          />
-                          <Typography
-                            sx={{
-                              fontSize: "12px",
-                              fontWeight: 550,
-                              color: "#000000",
-                              whiteSpace: "nowrap",
-                            }}
-                          >
-                            Sports equipment
-                          </Typography>
-                        </Box>
-                      </Grid>
-                      <Grid
-                        item
-                        xs={6}
-                        sm={3}
-                        md={3}
-                        lg={2}
-                        xl={2}
-                        container
-                        justifyContent="center"
-                        alignItems="center"
-                      >
-                        <Box
-                          sx={{
-                            width: "110px",
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            border: "1px solid #5855555c",
-                            padding: "10px",
-                            borderRadius: "4px",
-                          }}
-                        >
-                          <img
-                            alt="Consumables"
-                            src={Electroniucs}
-                            style={{
-                              height: "50px",
-                              width: "50px",
-                              marginBottom: "5px",
-                            }}
-                          />
-                          <Typography
-                            sx={{
-                              fontSize: "12px",
-                              fontWeight: 550,
-                              color: "#000000",
-                            }}
-                          >
-                            Clothes Item
-                          </Typography>
-                        </Box>
-                      </Grid>
+                            <img
+                              alt={item.name}
+                              src={item.src}
+                              style={{
+                                height: "50px",
+                                width: "50px",
+                                marginBottom: "5px",
+                              }}
+                            />
+                            <Typography
+                              sx={{
+                                fontSize: "12px",
+                                fontWeight: 550,
+                                color: "#000000",
+                                whiteSpace: "nowrap",
+                              }}
+                            >
+                              {item.name}
+                            </Typography>
+                          </Box>
+                        </Grid>
+                      ))}
                     </Grid>
+                  </Grid>
+                  <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                    <Grid container spacing={1}></Grid>
                   </Grid>
                 </Grid>
               </Box>
