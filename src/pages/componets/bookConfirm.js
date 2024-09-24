@@ -19,7 +19,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
-export default function BookConfirm({ open, handleClose }) {
+export default function BookConfirm({ open, handleClose, setNewOrderACtive }) {
   return (
     <Modal
       open={open}
@@ -366,9 +366,17 @@ export default function BookConfirm({ open, handleClose }) {
                       >
                         <AddCircleOutlineIcon
                           sx={{ fontSize: "16px", mr: 1, cursor: "pointer" }}
+                          onClick={() => {
+                            setNewOrderACtive(false);
+                            handleClose();
+                          }}
                         />
                         <Typography
                           sx={{ fontSize: "14px", cursor: "pointer" }}
+                          onClick={() => {
+                            setNewOrderACtive(false);
+                            handleClose();
+                          }}
                         >
                           Create an another Order
                         </Typography>

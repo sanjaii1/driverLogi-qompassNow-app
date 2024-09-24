@@ -21,7 +21,7 @@ import PickupAddress from "./pickupAddress";
 import DeliveryAddress from "./deliveryAddress";
 import BookConfirm from "./bookConfirm";
 
-export default function Aside() {
+export default function Aside({ setNewOrderACtive, newOrderActive }) {
   const [openPickUp, setOpenPickUp] = React.useState(false);
   const [openDelivery, setOpenDelivery] = React.useState(false);
   const [openBookConfirm, setOpenBookConfirm] = React.useState(false);
@@ -41,7 +41,6 @@ export default function Aside() {
         <Accordion
           sx={{
             background: "#095ef812",
-  
           }}
         >
           <AccordionSummary
@@ -194,7 +193,7 @@ export default function Aside() {
                   verticalAlign: "middle",
                   marginRight: 1,
                   fontSize: "16px",
-                  color:"#a7a7a7ab"
+                  color: "#a7a7a7ab",
                 }}
               />
               The estimated cost may vary from the final shipping cost based on
@@ -227,7 +226,7 @@ export default function Aside() {
                 {" "}
                 <Typography sx={{ fontSize: "13px", fontWeight: 500 }}>
                   {" "}
-                  Total Weight 284kg{" "}
+                  Total Weight {newOrderActive === true ? "284kg" : "000kg"}
                 </Typography>
               </Box>
             </Box>
@@ -391,7 +390,9 @@ export default function Aside() {
         <Typography sx={{ fontSize: "17px", fontWeight: 550 }}>
           Total Weight
         </Typography>
-        <Typography sx={{ fontSize: "14px" }}>000kg</Typography>
+        <Typography sx={{ fontSize: "14px" }}>
+          {newOrderActive === true ? "118kg" : "000kg"}
+        </Typography>
       </Box>
       <Box
         sx={{
@@ -407,42 +408,46 @@ export default function Aside() {
         <Typography sx={{ fontSize: "17px", fontWeight: 550 }}>
           SUB Total
         </Typography>
-        <Typography sx={{ fontSize: "14px" }}>0000kg</Typography>
-      </Box>
-
-      <Box
-        sx={{
-          padding: "20px",
-        }}
-      >
-        <FormControlLabel
-          control={<Checkbox  />}
-          label={
-            <Typography style={{ fontWeight: 550,fontSize:"14px" }}>
-              I agree to the terms and conditions
-            </Typography>
-          }
-        />
-        <Typography sx={{fontSize:'12px'}}>
-          by checking this box, I confirm that I have read and agree to abide by
-          the terms governing this transaction, including refund and
-          cancellation policies
+        <Typography sx={{ fontSize: "14px" }}>
+          {newOrderActive === true ? "₹2976.52" : "₹0000.00"}
         </Typography>
-        <Button
-          variant="contained"
-          color="success"
-          sx={{ padding: "5px 30px 5px 30px", marginTop: "10px" }}
-          onClick={handleOpenBookConfirm}
-        >
-          Pay INR 2976.52
-        </Button>
       </Box>
+      {newOrderActive && (
+        <Box
+          sx={{
+            padding: "20px",
+          }}
+        >
+          <FormControlLabel
+            control={<Checkbox />}
+            label={
+              <Typography style={{ fontWeight: 550, fontSize: "14px" }}>
+                I agree to the terms and conditions
+              </Typography>
+            }
+          />
+          <Typography sx={{ fontSize: "12px" }}>
+            by checking this box, I confirm that I have read and agree to abide
+            by the terms governing this transaction, including refund and
+            cancellation policies
+          </Typography>
+          <Button
+            variant="contained"
+            color="success"
+            sx={{ padding: "5px 30px", marginTop: "10px" }}
+            onClick={handleOpenBookConfirm}
+          >
+            Pay INR 2976.52
+          </Button>
+        </Box>
+      )}
 
       <PickupAddress open={openPickUp} handleClose={handleClosePickUp} />
       <DeliveryAddress open={openDelivery} handleClose={handleCloseDelivery} />
       <BookConfirm
         open={openBookConfirm}
         handleClose={handleCloseBookConfirm}
+        setNewOrderACtive={setNewOrderACtive}
       />
     </Box>
   );

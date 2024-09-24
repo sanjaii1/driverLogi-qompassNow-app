@@ -13,7 +13,7 @@ import Plastic from "../../assets/image/plastic.png";
 import { Formik, Form, Field } from "formik";
 import AddOrder from "./addOrder";
 
-export default function OrderManagement() {
+export default function OrderManagement({ setNewOrderACtive, newOrderActive }) {
   const [selectProductCateActive, setSelectProductCateActive] = useState(false);
   const [selectLoadTypeActive, setSelectLoadTypeActive] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -54,16 +54,18 @@ export default function OrderManagement() {
     setSelectLoadTypeActive(false);
     setSelectedItem(null);
     setSelectedLoadItem(null);
+    setNewOrderACtive(false);
   };
 
-  
   const handleCloseAddOrder = () => setOpenAddOrder(false);
 
   const handleSubmit = (values, resetForm) => {
     console.log("Form Values:", values);
 
     resetForm();
-    setOpenAddOrder(true)
+    setOpenAddOrder(true);
+    
+
   };
 
   const restrictToNumbers = (e) => {
@@ -100,7 +102,10 @@ export default function OrderManagement() {
               display="flex"
               justifyContent={{ xs: "center", sm: "flex-start" }}
             >
-              <Typography variant="h6" sx={{ fontWeight: 550, fontSize:"17px" }}>
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: 550, fontSize: "17px" }}
+              >
                 Order Management
               </Typography>
             </Box>
@@ -116,12 +121,14 @@ export default function OrderManagement() {
               <Button
                 sx={{
                   textTransform: "capitalize",
-                  backgroundColor: "#4276ed",
+                  backgroundColor:
+                    newOrderActive === true ? "#1a1a1a73" : "#4276ed",
                   color: "#fff",
                   fontSize: "13px",
                   height: "25px",
                   "&:hover": {
-                    backgroundColor: "#4276ed",
+                    backgroundColor:
+                      newOrderActive === true ? "#1a1a1a73" : "#4276ed",
                     opacity: 1,
                   },
                 }}
@@ -149,7 +156,13 @@ export default function OrderManagement() {
               >
                 <Grid container>
                   <Grid item xs={12} sm={6} md={6} lg={8} xl={8}>
-                    <Typography sx={{ color: "#000000", fontWeight: 550, fontSize:"14px" }}>
+                    <Typography
+                      sx={{
+                        color: "#000000",
+                        fontWeight: 550,
+                        fontSize: "14px",
+                      }}
+                    >
                       Product category
                     </Typography>
                   </Grid>
@@ -283,7 +296,13 @@ export default function OrderManagement() {
               >
                 <Grid container>
                   <Grid item xs={12} sm={6} md={6} lg={8} xl={8}>
-                    <Typography sx={{ color: "#000000", fontWeight: 550,fontSize:"14px" }}>
+                    <Typography
+                      sx={{
+                        color: "#000000",
+                        fontWeight: 550,
+                        fontSize: "14px",
+                      }}
+                    >
                       Load type
                     </Typography>
                   </Grid>
@@ -334,7 +353,6 @@ export default function OrderManagement() {
                   borderRadius: "4px",
                   boxShadow: 6,
                   border: "1px solid #5855551f",
-
                 }}
               >
                 <Grid container spacing={2}>
@@ -476,7 +494,6 @@ export default function OrderManagement() {
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
             <Box
               sx={{
-                
                 borderRadius: "4px",
                 // boxShadow: 1,
                 border: "1px solid #5855551f",
@@ -713,7 +730,7 @@ export default function OrderManagement() {
         </Grid>
       </Box>
 
-      <AddOrder open={openAddOrder} handleClose={handleCloseAddOrder} />
+      <AddOrder open={openAddOrder} handleClose={handleCloseAddOrder} setNewOrderACtive={setNewOrderACtive} />
     </Box>
   );
 }

@@ -178,7 +178,7 @@ export default function OrderOverview() {
                 <TableCell sx={{whiteSpace:'nowrap'  , fontSize:"13px", fontWeight:550}}>Load type</TableCell>
                 <TableCell sx={{whiteSpace:'nowrap' , fontSize:"13px", fontWeight:550}}>Load Quantity</TableCell>
                 <TableCell sx={{whiteSpace:'nowrap' , fontSize:"13px", fontWeight:550}}>Actual Weight</TableCell>
-                <TableCell sx={{whiteSpace:'nowrap', minWidth:"150px" , fontSize:"13px", fontWeight:550}}>Volumetric</TableCell>
+                <TableCell sx={{whiteSpace:'nowrap', minWidth:"150px" , fontSize:"13px", fontWeight:550}}>Volumetric (cm3)</TableCell>
                 <TableCell sx={{whiteSpace:'nowrap' , fontSize:"13px", fontWeight:550}}>Product category</TableCell>
                 <TableCell sx={{whiteSpace:'nowrap' , fontSize:"13px", fontWeight:550}}>HAZMAT class</TableCell>
                 <TableCell sx={{whiteSpace:'nowrap' , fontSize:"13px", fontWeight:550}}>Action</TableCell>

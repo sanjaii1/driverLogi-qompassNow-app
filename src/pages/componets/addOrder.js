@@ -1,9 +1,9 @@
 import React from "react";
 import { Modal, Box, Typography, Button } from "@mui/material";
 import Lottie from "lottie-react";
-import animationData from "../../assets/json/Animation - 1727198354857.json"; 
+import animationData from "../../assets/json/Animation - 1727198354857.json";
 
-export default function AddOrder({ open, handleClose }) {
+export default function AddOrder({ open, handleClose, setNewOrderACtive }) {
   return (
     <Modal
       open={open}
@@ -53,7 +53,10 @@ export default function AddOrder({ open, handleClose }) {
               opacity: 1,
             },
           }}
-          onClick={handleClose}
+          onClick={() => {
+            handleClose();
+            setNewOrderACtive(true);
+          }}
         >
           Ok
         </Button>
