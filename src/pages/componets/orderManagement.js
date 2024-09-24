@@ -10,6 +10,7 @@ import HouseHold from "../../assets/image/sofa.png";
 import CartonBox from "../../assets/image/carton.png";
 import WoodenBox from "../../assets/image/wooden.png";
 import Plastic from "../../assets/image/plastic.png";
+import { Formik, Form, Field } from "formik";
 
 export default function OrderManagement() {
   const [selectProductCateActive, setSelectProductCateActive] = useState(false);
@@ -17,7 +18,13 @@ export default function OrderManagement() {
   const [selectedItem, setSelectedItem] = useState(null);
   const [selectedLoadItem, setSelectedLoadItem] = useState(null);
 
-  console.log(selectedItem, "askjghjabshb");
+  const initialValues = {
+    length: "",
+    breadth: "",
+    height: "",
+    actualWeight: "",
+    invoiceNo: "",
+  };
 
   const productItem = [
     { name: "Consumables", src: Consumables },
@@ -39,6 +46,29 @@ export default function OrderManagement() {
     setSelectedItem(itemName);
     setSelectProductCateActive(false);
     setSelectLoadTypeActive(true);
+  };
+  const handleNewOrderClick = () => {
+    setSelectProductCateActive(false);
+    setSelectLoadTypeActive(false);
+    setSelectedItem(null);
+    setSelectedLoadItem(null);
+  };
+
+  const handleSubmit = (values) => {
+    console.log("Form Values:", values);
+  };
+
+  const restrictToNumbers = (e) => {
+    if (
+      !/[0-9]/.test(e.key) &&
+      e.key !== "Backspace" &&
+      e.key !== "Delete" &&
+      e.key !== "ArrowLeft" &&
+      e.key !== "ArrowRight" &&
+      e.key !== "Tab"
+    ) {
+      e.preventDefault();
+    }
   };
 
   return (
@@ -81,12 +111,14 @@ export default function OrderManagement() {
                   backgroundColor: "#4276ed",
                   color: "#fff",
                   fontSize: "13px",
+                  height: "25px",
                   "&:hover": {
                     backgroundColor: "#4276ed",
                     opacity: 1,
                   },
                 }}
                 endIcon={<AddIcon />}
+                onClick={() => handleNewOrderClick()}
               >
                 New Order
               </Button>
@@ -379,18 +411,7 @@ export default function OrderManagement() {
                               inputMode: "numeric",
                               pattern: "[0-9]*",
                             }}
-                            onKeyDown={(e) => {
-                              if (
-                                !/[0-9]/.test(e.key) &&
-                                e.key !== "Backspace" &&
-                                e.key !== "Delete" &&
-                                e.key !== "ArrowLeft" &&
-                                e.key !== "ArrowRight" &&
-                                e.key !== "Tab"
-                              ) {
-                                e.preventDefault();
-                              }
-                            }}
+                            onKeyDown={(e) => restrictToNumbers(e)}
                             variant="outlined"
                             sx={{
                               "& .MuiOutlinedInput-input": {
@@ -421,6 +442,7 @@ export default function OrderManagement() {
                             textTransform: "capitalize",
                             fontSize: "13px",
                             color: "#000000",
+                            fontWeight: 550,
                             borderColor: "#000000",
                             "&:hover": {
                               color: "#000000",
@@ -438,187 +460,236 @@ export default function OrderManagement() {
             )}
           </Grid>
 
-          <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-            <Box
-              sx={{
-                marginTop: "20px",
-                borderRadius: "4px",
-                boxShadow: 1,
-                padding: "10px",
-                display: "flex",
-                justifyContent: "space-between",
-                backgroundColor: "#095ef812",
-              }}
-            >
-              <Grid container spacing={3}>
-                <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
+          <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+            {({ values, handleChange }) => (
+              <Form>
+                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                   <Box
                     sx={{
+                      marginTop: "20px",
+                      borderRadius: "4px",
+                      boxShadow: 1,
+                      padding: "10px",
                       display: "flex",
-                      alignItems: "center",
-                      padding: "5px",
+                      justifyContent: "space-between",
+                      backgroundColor: "#095ef812",
                     }}
                   >
-                    <Typography
-                      sx={{
-                        marginRight: 1,
-                        fontSize: "14px",
-                        fontWeight: 550,
-                        color: "#000000",
-                      }}
-                    >
-                      Volumetric
-                    </Typography>
+                    <Grid container spacing={3}>
+                      <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            padding: "5px",
+                          }}
+                        >
+                          <Typography
+                            sx={{
+                              marginRight: 1,
+                              fontSize: "14px",
+                              fontWeight: 550,
+                              color: "#000000",
+                            }}
+                          >
+                            Volumetric
+                          </Typography>
 
-                    <Grid container spacing={1} sx={{ flexGrow: 2 }}>
-                      <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
-                        <input
-                          // type="number"
-                          placeholder="Length"
-                          style={{
-                            width: "100%",
-                            padding: "5px",
-                            border: "1px solid #ccc",
-                          }}
-                        />
+                          <Grid container spacing={1.5} sx={{ flexGrow: 2 }}>
+                            <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+                              <Field
+                                inputProps={{
+                                  inputMode: "numeric",
+                                  pattern: "[0-9]*",
+                                }}
+                                name="length"
+                                placeholder="Length"
+                                type="text"
+                                onKeyDown={(e) => restrictToNumbers(e)}
+                                style={{
+                                  width: "100%",
+                                  padding: "5px",
+                                  border: "1px solid #ccc",
+                                }}
+                              />
+                            </Grid>
+                            <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+                              <Field
+                                inputProps={{
+                                  inputMode: "numeric",
+                                  pattern: "[0-9]*",
+                                }}
+                                onKeyDown={(e) => restrictToNumbers(e)}
+                                name="breadth"
+                                placeholder="Breadth"
+                                type="text"
+                                style={{
+                                  width: "100%",
+                                  padding: "5px",
+                                  border: "1px solid #ccc",
+                                }}
+                              />
+                            </Grid>
+                            <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+                              <Field
+                                inputProps={{
+                                  inputMode: "numeric",
+                                  pattern: "[0-9]*",
+                                }}
+                                onKeyDown={(e) => restrictToNumbers(e)}
+                                name="height"
+                                placeholder="Height"
+                                type="text"
+                                style={{
+                                  width: "100%",
+                                  padding: "5px",
+                                  border: "1px solid #ccc",
+                                }}
+                              />
+                            </Grid>
+                          </Grid>
+                        </Box>
+                        <Box>
+                          <Typography
+                            sx={{
+                              fontSize: "10px",
+                              padding: "0px 0px 0px 5px",
+                              color: "#0000008f",
+                            }}
+                          >
+                            Lenght + Breadth + Height should be at-least 15 cm
+                          </Typography>
+                        </Box>
                       </Grid>
-                      <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
-                        <input
-                          // type="number"
-                          placeholder="Breadth"
-                          style={{
-                            width: "100%",
+                      <Grid item xs={12} sm={6} md={6} lg={3.5} xl={3.5}>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
                             padding: "5px",
-                            border: "1px solid #ccc",
                           }}
-                        />
+                        >
+                          <Typography
+                            sx={{
+                              marginRight: 1,
+                              whiteSpace: "nowrap",
+                              fontSize: "14px",
+                              fontWeight: 550,
+                              color: "#000000",
+                            }}
+                          >
+                            Actual weight
+                          </Typography>
+
+                          <Grid container spacing={1.4} sx={{ flexGrow: 1 }}>
+                            <Grid item xs={8} sm={8} md={8}>
+                              <Field
+                                inputProps={{
+                                  inputMode: "numeric",
+                                  pattern: "[0-9]*",
+                                }}
+                                onKeyDown={(e) => restrictToNumbers(e)}
+                                name="actualWeight"
+                                placeholder="Weight"
+                                type="text"
+                                style={{
+                                  width: "100%",
+                                  padding: "5px",
+                                  border: "1px solid #ccc",
+                                }}
+                              />
+                            </Grid>
+                            <Grid item xs={4} sm={4} md={4}>
+                              <input
+                                value={"Kg"}
+                                style={{
+                                  width: "100%",
+                                  padding: "5px",
+                                  border: "1px solid #ccc",
+                                }}
+                              />
+                            </Grid>
+                          </Grid>
+                        </Box>
+                        <Box>
+                          <Typography
+                            sx={{
+                              fontSize: "10px",
+                              padding: "0px 0px 0px 5px",
+                              color: "#0000008f",
+                            }}
+                          >
+                            Packaged weight should be at-least 50 grms
+                          </Typography>
+                        </Box>
                       </Grid>
-                      <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
-                        <input
-                          placeholder="Height"
-                          style={{
-                            width: "100%",
+                      <Grid item xs={12} sm={6} md={6} lg={2.5} xl={2.5}>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
                             padding: "5px",
-                            border: "1px solid #ccc",
+                            whiteSpace: "nowrap",
                           }}
-                        />
+                        >
+                          <Typography
+                            sx={{
+                              fontSize: "14px",
+                              fontWeight: 550,
+                              color: "#000000",
+                              marginRight: 1,
+                            }}
+                          >
+                            Invoice NO
+                          </Typography>
+
+                          <Field
+                            name="invoiceNo"
+                            placeholder="00000000"
+                            type="text"
+                            style={{
+                              width: "100%",
+                              padding: "5px",
+                              border: "1px solid #ccc",
+                            }}
+                          />
+                        </Box>
+                      </Grid>
+
+                      <Grid
+                        item
+                        xs={12}
+                        sm={6}
+                        md={6}
+                        lg={2}
+                        xl={2}
+                        sx={{ textAlign: "right", marginTop: "5px" }}
+                      >
+                        <Button
+                          type="submit"
+                          sx={{
+                            textTransform: "capitalize",
+                            backgroundColor: "#fff",
+                            color: "#000000",
+                            fontSize: "13px",
+                            border: "1px solid #0000004f",
+                            height: "25px",
+                            "&:hover": {
+                              backgroundColor: "#fff",
+                              opacity: 1,
+                            },
+                          }}
+                          endIcon={<AddIcon />}
+                        >
+                          Add Order
+                        </Button>
                       </Grid>
                     </Grid>
                   </Box>
-                  <Box>
-                    <Typography
-                      sx={{
-                        fontSize: "10px",
-                        padding: "0px 0px 0px 5px",
-                        color: "#0000008f",
-                      }}
-                    >
-                      Lenght + Breadth + Height should be at-least 15 cm
-                    </Typography>
-                  </Box>
                 </Grid>
-                <Grid item xs={12} sm={6} md={6} lg={3.5} xl={3.5}>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      padding: "5px",
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        marginRight: 1,
-                        whiteSpace: "nowrap",
-                        fontSize: "14px",
-                        fontWeight: 550,
-                        color: "#000000",
-                      }}
-                    >
-                      Actual weight
-                    </Typography>
-
-                    <Grid container spacing={1} sx={{ flexGrow: 1 }}>
-                      <Grid item xs={8} sm={8} md={8}>
-                        <input
-                          type="number"
-                          placeholder="Weight"
-                          style={{
-                            width: "100%",
-                            padding: "5px",
-                            border: "1px solid #ccc",
-                          }}
-                        />
-                      </Grid>
-                      <Grid item xs={4} sm={4} md={4}>
-                        <input
-                          type="number"
-                          style={{
-                            width: "100%",
-                            padding: "5px",
-                            border: "1px solid #ccc",
-                          }}
-                        />
-                      </Grid>
-                    </Grid>
-                  </Box>
-                  <Box>
-                    <Typography
-                      sx={{
-                        fontSize: "10px",
-                        padding: "0px 0px 0px 5px",
-                        color: "#0000008f",
-                      }}
-                    >
-                      Packaged weight should be at-least 50 grms
-                    </Typography>
-                  </Box>
-                </Grid>
-                <Grid item xs={12} sm={6} md={6} lg={2.5} xl={2.5}>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      padding: "5px",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        fontSize: "14px",
-                        fontWeight: 550,
-                        color: "#000000",
-                        marginRight: 1,
-                      }}
-                    >
-                      Invoice NO
-                    </Typography>
-
-                    <input
-                      type="number"
-                      placeholder="00000000"
-                      style={{
-                        width: "100%",
-                        padding: "5px",
-                        border: "1px solid #ccc",
-                      }}
-                    />
-                  </Box>
-                </Grid>
-
-                <Grid
-                  item
-                  xs={12}
-                  sm={6}
-                  md={6}
-                  lg={2}
-                  xl={2}
-                  sx={{ ml: "auto", textAlign: "right" }}
-                >
-                  <Button>add order</Button>
-                </Grid>
-              </Grid>
-            </Box>
-          </Grid>
+              </Form>
+            )}
+          </Formik>
         </Grid>
       </Box>
     </Box>
