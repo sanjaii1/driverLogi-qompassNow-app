@@ -64,8 +64,6 @@ export default function OrderManagement({ setNewOrderACtive, newOrderActive }) {
 
     resetForm();
     setOpenAddOrder(true);
-    
-
   };
 
   const restrictToNumbers = (e) => {
@@ -121,14 +119,12 @@ export default function OrderManagement({ setNewOrderACtive, newOrderActive }) {
               <Button
                 sx={{
                   textTransform: "capitalize",
-                  backgroundColor:
-                    newOrderActive === true ? "#1a1a1a73" : "#4276ed",
+                  backgroundColor: "#4276ed",
                   color: "#fff",
                   fontSize: "13px",
                   height: "25px",
                   "&:hover": {
-                    backgroundColor:
-                      newOrderActive === true ? "#1a1a1a73" : "#4276ed",
+                    backgroundColor: "#4276ed",
                     opacity: 1,
                   },
                 }}
@@ -730,7 +726,11 @@ export default function OrderManagement({ setNewOrderACtive, newOrderActive }) {
         </Grid>
       </Box>
 
-      <AddOrder open={openAddOrder} handleClose={handleCloseAddOrder} setNewOrderACtive={setNewOrderACtive} />
+      <AddOrder
+        open={openAddOrder}
+        handleClose={handleCloseAddOrder}
+        setNewOrderACtive={setNewOrderACtive}
+      />
     </Box>
   );
 }
