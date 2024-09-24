@@ -11,12 +11,14 @@ import CartonBox from "../../assets/image/carton.png";
 import WoodenBox from "../../assets/image/wooden.png";
 import Plastic from "../../assets/image/plastic.png";
 import { Formik, Form, Field } from "formik";
+import AddOrder from "./addOrder";
 
 export default function OrderManagement() {
   const [selectProductCateActive, setSelectProductCateActive] = useState(false);
   const [selectLoadTypeActive, setSelectLoadTypeActive] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [selectedLoadItem, setSelectedLoadItem] = useState(null);
+  const [openAddOrder, setOpenAddOrder] = React.useState(false);
 
   const initialValues = {
     length: "",
@@ -54,8 +56,14 @@ export default function OrderManagement() {
     setSelectedLoadItem(null);
   };
 
-  const handleSubmit = (values) => {
+  
+  const handleCloseAddOrder = () => setOpenAddOrder(false);
+
+  const handleSubmit = (values, resetForm) => {
     console.log("Form Values:", values);
+
+    resetForm();
+    setOpenAddOrder(true)
   };
 
   const restrictToNumbers = (e) => {
@@ -460,21 +468,26 @@ export default function OrderManagement() {
             )}
           </Grid>
 
-          <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-            {({ values, handleChange }) => (
-              <Form>
-                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                  <Box
-                    sx={{
-                      marginTop: "20px",
-                      borderRadius: "4px",
-                      boxShadow: 1,
-                      padding: "10px",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      backgroundColor: "#095ef812",
-                    }}
-                  >
+          <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+            <Box
+              sx={{
+                marginTop: "10px",
+                borderRadius: "4px",
+                boxShadow: 1,
+                padding: "10px",
+                display: "flex",
+                justifyContent: "space-between",
+                backgroundColor: "#095ef812",
+              }}
+            >
+              <Formik
+                initialValues={initialValues}
+                onSubmit={(values, { resetForm }) => {
+                  handleSubmit(values, resetForm);
+                }}
+              >
+                {({ values, handleChange }) => (
+                  <Form>
                     <Grid container spacing={3}>
                       <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
                         <Box
@@ -495,7 +508,7 @@ export default function OrderManagement() {
                             Volumetric
                           </Typography>
 
-                          <Grid container spacing={1.5} sx={{ flexGrow: 2 }}>
+                          <Grid container spacing={1.4} sx={{ flexGrow: 2 }}>
                             <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
                               <Field
                                 inputProps={{
@@ -685,13 +698,15 @@ export default function OrderManagement() {
                         </Button>
                       </Grid>
                     </Grid>
-                  </Box>
-                </Grid>
-              </Form>
-            )}
-          </Formik>
+                  </Form>
+                )}
+              </Formik>
+            </Box>
+          </Grid>
         </Grid>
       </Box>
+
+      <AddOrder open={openAddOrder} handleClose={handleCloseAddOrder} />
     </Box>
   );
 }
