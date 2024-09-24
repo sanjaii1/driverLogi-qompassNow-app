@@ -129,7 +129,7 @@ export default function Header() {
         container
         sx={{
           background: "white",
-          borderBottom:'1px solid #5855555c',
+          borderBottom:'1px solid #5855551f',
           justifyContent: "space-between",
           alignItems: "center",
           padding:'5px 20px 5px 20px'

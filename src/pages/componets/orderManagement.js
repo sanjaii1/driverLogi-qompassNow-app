@@ -82,15 +82,15 @@ export default function OrderManagement() {
   return (
     <Box
       sx={{
-        border: "1px solid #ccc",
+        border: "1px solid #5855551f",
         borderRadius: "4px",
-        boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+        boxShadow: "0px 4px 12px #5855551f",
         backgroundColor: "#fff",
       }}
     >
       <Box
         sx={{
-          borderBottom: "1px solid grey",
+          borderBottom: "1px solid #5855551f",
           padding: "10px",
         }}
       >
@@ -100,7 +100,7 @@ export default function OrderManagement() {
               display="flex"
               justifyContent={{ xs: "center", sm: "flex-start" }}
             >
-              <Typography variant="h6" sx={{ fontWeight: 550 }}>
+              <Typography variant="h6" sx={{ fontWeight: 550, fontSize:"17px" }}>
                 Order Management
               </Typography>
             </Box>
@@ -142,20 +142,21 @@ export default function OrderManagement() {
                 sx={{
                   padding: "10px",
                   borderRadius: "4px",
-                  boxShadow: 1,
+                  // boxShadow: 3,
+                  border: "1px solid #5855551f",
                   backgroundColor: "#095ef812",
                 }}
               >
                 <Grid container>
                   <Grid item xs={12} sm={6} md={6} lg={8} xl={8}>
-                    <Typography sx={{ color: "#000000", fontWeight: 550 }}>
+                    <Typography sx={{ color: "#000000", fontWeight: 550, fontSize:"14px" }}>
                       Product category
                     </Typography>
                   </Grid>
                   <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
                     <Box
                       sx={{
-                        border: "1px solid #00000063",
+                        border: "1px solid #5855551f",
                         borderRadius: "2px",
                         display: "flex",
                         alignItems: "center",
@@ -197,7 +198,8 @@ export default function OrderManagement() {
                 sx={{
                   padding: "10px",
                   borderRadius: "4px",
-                  boxShadow: 3,
+                  boxShadow: 6,
+                  border: "1px solid #5855551f",
                 }}
               >
                 <Grid container spacing={2}>
@@ -274,20 +276,21 @@ export default function OrderManagement() {
                 sx={{
                   padding: "10px",
                   borderRadius: "4px",
-                  boxShadow: 1,
+                  // boxShadow: 1,
+                  border: "1px solid #5855551f",
                   backgroundColor: "#095ef812",
                 }}
               >
                 <Grid container>
                   <Grid item xs={12} sm={6} md={6} lg={8} xl={8}>
-                    <Typography sx={{ color: "#000000", fontWeight: 550 }}>
+                    <Typography sx={{ color: "#000000", fontWeight: 550,fontSize:"14px" }}>
                       Load type
                     </Typography>
                   </Grid>
                   <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
                     <Box
                       sx={{
-                        border: "1px solid #00000063",
+                        border: "1px solid #5855551f",
                         borderRadius: "2px",
                         display: "flex",
                         alignItems: "center",
@@ -329,7 +332,9 @@ export default function OrderManagement() {
                 sx={{
                   padding: "10px",
                   borderRadius: "4px",
-                  boxShadow: 3,
+                  boxShadow: 6,
+                  border: "1px solid #5855551f",
+
                 }}
               >
                 <Grid container spacing={2}>
@@ -471,9 +476,11 @@ export default function OrderManagement() {
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
             <Box
               sx={{
-                marginTop: "10px",
+                
                 borderRadius: "4px",
-                boxShadow: 1,
+                // boxShadow: 1,
+                border: "1px solid #5855551f",
+
                 padding: "10px",
                 display: "flex",
                 justifyContent: "space-between",

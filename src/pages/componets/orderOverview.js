@@ -31,7 +31,7 @@ export default function OrderOverview() {
   return (
     <Box
       sx={{
-        border: "1px solid #ccc",
+        border: "1px solid #5855551f",
         borderRadius: "4px",
         // padding: "16px",
         boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
@@ -48,7 +48,7 @@ export default function OrderOverview() {
         }}
       >
         <Box>
-          <Typography>Order Overview</Typography>
+          <Typography sx={{fontSize:"17px", fontWeight:550}}>Order Overview</Typography>
         </Box>
         <Box>
           <IconButton
