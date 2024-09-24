@@ -24,8 +24,7 @@ import TextField from "@mui/material/TextField";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import EditIcon from '@mui/icons-material/Edit';
-
+import EditIcon from "@mui/icons-material/Edit";
 
 export default function OrderOverview() {
   return (
@@ -48,7 +47,9 @@ export default function OrderOverview() {
         }}
       >
         <Box>
-          <Typography sx={{fontSize:"17px", fontWeight:550}}>Order Overview</Typography>
+          <Typography sx={{ fontSize: "17px", fontWeight: 550 }}>
+            Order Overview
+          </Typography>
         </Box>
         <Box>
           <IconButton
@@ -173,96 +174,222 @@ export default function OrderOverview() {
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead sx={{ backgroundColor: "#095ef812" }}>
               <TableRow>
-                <TableCell sx={{whiteSpace:'nowrap' , fontSize:"13px", fontWeight:550}}>No</TableCell>
-                <TableCell sx={{whiteSpace:'nowrap' , fontSize:"13px", fontWeight:550}}>Invoice no</TableCell>
-                <TableCell sx={{whiteSpace:'nowrap'  , fontSize:"13px", fontWeight:550}}>Load type</TableCell>
-                <TableCell sx={{whiteSpace:'nowrap' , fontSize:"13px", fontWeight:550}}>Load Quantity</TableCell>
-                <TableCell sx={{whiteSpace:'nowrap' , fontSize:"13px", fontWeight:550}}>Actual Weight</TableCell>
-                <TableCell sx={{whiteSpace:'nowrap', minWidth:"150px" , fontSize:"13px", fontWeight:550}}>Volumetric (cm3)</TableCell>
-                <TableCell sx={{whiteSpace:'nowrap' , fontSize:"13px", fontWeight:550}}>Product category</TableCell>
-                <TableCell sx={{whiteSpace:'nowrap' , fontSize:"13px", fontWeight:550}}>HAZMAT class</TableCell>
-                <TableCell sx={{whiteSpace:'nowrap' , fontSize:"13px", fontWeight:550}}>Action</TableCell>
+                <TableCell
+                  sx={{
+                    whiteSpace: "nowrap",
+                    fontSize: "13px",
+                    fontWeight: 550,
+                  }}
+                >
+                  No
+                </TableCell>
+                <TableCell
+                  sx={{
+                    whiteSpace: "nowrap",
+                    fontSize: "13px",
+                    fontWeight: 550,
+                  }}
+                >
+                  Invoice no
+                </TableCell>
+                <TableCell
+                  sx={{
+                    whiteSpace: "nowrap",
+                    fontSize: "13px",
+                    fontWeight: 550,
+                  }}
+                >
+                  Load type
+                </TableCell>
+                <TableCell
+                  sx={{
+                    whiteSpace: "nowrap",
+                    fontSize: "13px",
+                    fontWeight: 550,
+                  }}
+                >
+                  Load Quantity
+                </TableCell>
+                <TableCell
+                  sx={{
+                    whiteSpace: "nowrap",
+                    fontSize: "13px",
+                    fontWeight: 550,
+                  }}
+                >
+                  Actual Weight
+                </TableCell>
+                <TableCell
+                  sx={{
+                    whiteSpace: "nowrap",
+
+                    fontSize: "13px",
+                    fontWeight: 550,
+                  }}
+                >
+                  Volumetric (cm3)
+                </TableCell>
+                <TableCell
+                  sx={{
+                    whiteSpace: "nowrap",
+                    fontSize: "13px",
+                    fontWeight: 550,
+                  }}
+                >
+                  Product category
+                </TableCell>
+                <TableCell
+                  sx={{
+                    whiteSpace: "nowrap",
+                    fontSize: "13px",
+                    fontWeight: 550,
+                  }}
+                >
+                  HAZMAT class
+                </TableCell>
+                <TableCell
+                  sx={{
+                    whiteSpace: "nowrap",
+                    fontSize: "13px",
+                    fontWeight: 550,
+                  }}
+                >
+                  Action
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               <TableRow>
-                <TableCell sx={{padding:"5px"}}>1</TableCell>
-                <TableCell sx={{padding:"5px"}}>
-                  <TextField
+                <TableCell sx={{ padding: "5px" }}>1</TableCell>
+                <TableCell sx={{ padding: "5px" }}>
+                  <input
                     variant="outlined"
-                    size="small"
+                    style={{
+                      height: "20px",
+                      border: "1px solid #cccccc",
+
+                      width: "100px",
+                    }}
                     defaultValue="INV002"
                   />
                 </TableCell>
-                <TableCell sx={{padding:"5px"}}>
-                  <FormControl size="small" variant="outlined" fullWidth>
-                    <Select labelId="load-type-label" defaultValue="fullLoad">
-                      <MenuItem value="fullLoad">Full Load</MenuItem>
-                      <MenuItem value="partialLoad">Partial Load</MenuItem>
-                      <MenuItem value="customLoad">Custom Load</MenuItem>
-                    </Select>
-                  </FormControl>
+                <TableCell sx={{ padding: "5px" }}>
+                  <select
+                    name="load"
+                    id="load"
+                    style={{
+                      height: "24px",
+                      border: "1px solid #cccccc",
+
+                      width: "100px",
+                    }}
+                  >
+                    <option value="Carton">Carton Box</option>
+                    <option value="Wooden">Wooden Box</option>
+                    <option value="Plastic">Plastic</option>
+                    <option value="Other">Other</option>
+                  </select>
                 </TableCell>
-                <TableCell sx={{padding:"5px"}}>
-                  <TextField
+                <TableCell sx={{ padding: "5px" }}>
+                  <input
                     variant="outlined"
                     size="small"
                     defaultValue="10"
+                    style={{
+                      height: "20px",
+                      border: "1px solid #cccccc",
+
+                      width: "100px",
+                    }}
                   />
                 </TableCell>
-                <TableCell sx={{padding:"5px"}}>
-                  <TextField
+                <TableCell sx={{ padding: "5px" }}>
+                  <input
                     variant="outlined"
                     size="small"
                     defaultValue="500kg"
+                    style={{
+                      height: "20px",
+                      border: "1px solid #cccccc",
+
+                      width: "100px",
+                    }}
                   />
                 </TableCell>
-                <TableCell sx={{padding:"5px"}}>
+                <TableCell sx={{ padding: "5px" }}>
                   {" "}
                   <Box sx={{ display: "flex" }}>
-                    <TextField
+                    <input
                       variant="outlined"
                       size="small"
-                      placeholder="Length"
+                      placeholder="L"
+                      style={{
+                        height: "20px",
+                        border: "1px solid #cccccc",
+
+                        width: "40px",
+                      }}
                     />
-                    <TextField
+                    <input
                       variant="outlined"
                       size="small"
-                      placeholder="Breadth"
+                      placeholder="B"
+                      style={{
+                        height: "20px",
+                        border: "1px solid #cccccc",
+
+                        width: "40px",
+                      }}
                     />
-                    <TextField
+                    <input
                       variant="outlined"
                       size="small"
-                      placeholder="Height"
+                      placeholder="H"
+                      style={{
+                        height: "20px",
+                        border: "1px solid #cccccc",
+
+                        width: "40px",
+                      }}
                     />
                   </Box>
                 </TableCell>
-                <TableCell sx={{padding:"5px"}}>
+                <TableCell sx={{ padding: "5px" }}>
                   {" "}
-                  <FormControl size="small" variant="outlined" fullWidth>
-                    <Select
-                      labelId="product-category-label-2"
-                      defaultValue="electronics"
-                    >
-                      <MenuItem value="chemicals">Chemicals</MenuItem>
-                      <MenuItem value="electronics">Electronics</MenuItem>
-                      <MenuItem value="furniture">Furniture</MenuItem>
-                    </Select>
-                  </FormControl>
+                  <select
+                    name="product"
+                    id="product"
+                    style={{
+                      height: "24px",
+                      border: "1px solid #cccccc",
+                      borderRadius: "2px",
+                      width: "120px",
+                    }}
+                  >
+                    <option value="Consumables">Consumables</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="sports">Sports Equipment</option>
+                    <option value="audi">Clothes Item</option>
+                    <option value="audi">Household Item </option>
+                    <option value="audi">Other</option>
+                  </select>
                 </TableCell>
-                <TableCell sx={{padding:"5px"}}>
-                  <FormControl size="small" variant="outlined" fullWidth>
-                    <Select
-                      labelId="hazmat-class-label-2"
-                      defaultValue="class9"
-                    >
-                      <MenuItem value="class1">Class 1</MenuItem>
-                      <MenuItem value="class2">Class 2</MenuItem>
-                      <MenuItem value="class3">Class 3</MenuItem>
-                    </Select>
-                  </FormControl>
+                <TableCell sx={{ padding: "5px" }}>
+                  <select
+                    name="haz"
+                    id="haz"
+                    style={{
+                      height: "24px",
+                      border: "1px solid #cccccc",
+                      borderRadius: "2px",
+                      width: "100px",
+                    }}
+                  >
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
                 </TableCell>
-                <TableCell sx={{padding:"5px"}}>
+                <TableCell sx={{ padding: "5px" }}>
                   <Box sx={{ display: "flex" }}>
                     <IconButton
                       sx={{
