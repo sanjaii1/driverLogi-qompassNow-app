@@ -31,7 +31,7 @@ export default function DeliveryAddress({ open, handleClose }) {
           borderRadius: "8px",
         }}
       >
-        <Grid container spacing={1} sx={{ padding: " 16px 20px 0px 20px" }}>
+        <Grid container spacing={1} sx={{ padding: " 10px 20px 0px 20px" }}>
           <Grid item xs={10} sm={10} md={10} lg={10} xl={10}>
             <Typography sx={{ fontWeight: 550, fontSize: "16px" }}>
               Delivery Details
@@ -62,14 +62,79 @@ export default function DeliveryAddress({ open, handleClose }) {
             </IconButton>
           </Grid>
         </Grid>
-        <Divider sx={{ mb: 2 }} />
+        <Divider />
         <Grid
           container
           spacing={1}
-          sx={{ mb: 2, padding: " 10px 20px 0px 20px" }}
+          sx={{ mb: 2, padding: " 5px 20px 0px 20px" }}
         >
-          <Grid item>1</Grid>
-          <Grid item>2</Grid>
+          <Grid item xs={2} sm={6} md={6} lg={6} xl={6}>
+            <label
+              style={{
+                display: "block",
+                marginBottom: "4px",
+                fontSize: "14px",
+              }}
+            >
+              Date
+            </label>
+            <input
+              type="date"
+              style={{
+                padding: "8px",
+                border: "1px solid #ccc",
+                borderRadius: "4px",
+                boxSizing: "border-box",
+                width: "100%",
+              }}
+            />
+          </Grid>
+          <Grid item xs={2} sm={6} md={6} lg={6} xl={6}>
+            <Grid container spacing={2}>
+              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                <label
+                  style={{
+                    display: "block",
+                    marginBottom: "4px",
+                    fontSize: "14px",
+                  }}
+                >
+                  Start Time
+                </label>
+                <input
+                  type="time"
+                  style={{
+                    padding: "8px",
+                    border: "1px solid #ccc",
+                    borderRadius: "4px",
+                    boxSizing: "border-box",
+                    width: "100%",
+                  }}
+                />
+              </Grid>
+              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                <label
+                  style={{
+                    display: "block",
+                    marginBottom: "4px",
+                    fontSize: "14px",
+                  }}
+                >
+                  End Time
+                </label>
+                <input
+                  type="time"
+                  style={{
+                    padding: "8px",
+                    border: "1px solid #ccc",
+                    borderRadius: "4px",
+                    boxSizing: "border-box",
+                    width: "100%",
+                  }}
+                />
+              </Grid>
+            </Grid>
+          </Grid>
         </Grid>
 
         <Divider />
@@ -77,7 +142,7 @@ export default function DeliveryAddress({ open, handleClose }) {
         <Grid
           container
           spacing={1}
-          sx={{ mb: 2, padding: " 10px 20px 0px 20px" }}
+          sx={{ mb: 2, padding: " 5px 20px 0px 20px" }}
         >
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
             <Typography sx={{ fontWeight: 550, fontSize: "15px" }}>
@@ -188,11 +253,11 @@ export default function DeliveryAddress({ open, handleClose }) {
         <Grid
           container
           spacing={1}
-          sx={{ mb: 2, padding: " 10px 20px 0px 20px" }}
+          sx={{ mb: 2, padding: " 5px 20px 0px 20px" }}
         >
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
             <Typography sx={{ fontWeight: 550, fontSize: "15px" }}>
-            Add Delivery Address
+              Add Delivery Address
             </Typography>
           </Grid>
           <Grid item xs={2} sm={6} md={6} lg={6} xl={6}>
@@ -204,7 +269,7 @@ export default function DeliveryAddress({ open, handleClose }) {
                 fontSize: "14px",
               }}
             >
-            Address Line01
+              Address Line01
             </label>
             <input
               id="picupName"
@@ -228,7 +293,7 @@ export default function DeliveryAddress({ open, handleClose }) {
                 fontSize: "14px",
               }}
             >
-            Address Line02
+              Address Line02
             </label>
             <input
               id="emailAddress"
@@ -252,7 +317,7 @@ export default function DeliveryAddress({ open, handleClose }) {
                 fontSize: "14px",
               }}
             >
-            Building No
+              Building No
             </label>
             <input
               id="deliConytactNumber"
@@ -276,7 +341,7 @@ export default function DeliveryAddress({ open, handleClose }) {
                 fontSize: "14px",
               }}
             >
-            Street name
+              Street name
             </label>
             <input
               id="picsec"
@@ -300,7 +365,7 @@ export default function DeliveryAddress({ open, handleClose }) {
                 fontSize: "14px",
               }}
             >
-            Pin code
+              Pin code
             </label>
             <input
               id="panNo"
@@ -347,7 +412,7 @@ export default function DeliveryAddress({ open, handleClose }) {
           spacing={1}
           justifyContent="space-between"
           alignItems="center"
-          sx={{ mb: 2, padding: "10px 20px 0px 20px" }}
+          sx={{ mb: 2, padding: "5px 20px 0px 20px" }}
         >
           <Grid item xs={12} sm={12} md={12} lg={8} xl={8}>
             <Box>

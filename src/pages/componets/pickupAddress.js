@@ -2,7 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { Button, Checkbox, Grid, } from "@mui/material";
+import { Button, Checkbox, Grid } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Divider from "@mui/material/Divider";
 import CloseIcon from "@mui/icons-material/Close";
@@ -55,7 +55,6 @@ export default function PickupAddress({ open, handleClose }) {
                 mr: 1,
                 border: "1px solid #ccc",
                 backgroundColor: "#f5f5f5",
-
               }}
               onClick={handleClose}
             >
@@ -63,14 +62,87 @@ export default function PickupAddress({ open, handleClose }) {
             </IconButton>
           </Grid>
         </Grid>
-        <Divider sx={{ mb: 2 }} />
+        <Divider />
         <Grid
           container
           spacing={1}
           sx={{ mb: 2, padding: " 10px 20px 0px 20px" }}
         >
-          <Grid item>1</Grid>
-          <Grid item>2</Grid>
+          <Grid
+            item
+            xs={2}
+            sm={6}
+            md={6}
+            lg={6}
+            xl={6}
+
+          >
+            <label
+              style={{
+                display: "block",
+                marginBottom: "4px",
+                fontSize: "14px",
+              }}
+            >
+              Date
+            </label>
+            <input
+              type="date"
+              style={{
+                padding: "8px",
+                border: "1px solid #ccc",
+                borderRadius: "4px",
+                boxSizing: "border-box",
+                width: "100%",
+              }}
+            />
+          </Grid>
+          <Grid item xs={2} sm={6} md={6} lg={6} xl={6}>
+            <Grid container spacing={2}>
+              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                <label
+                  style={{
+                    display: "block",
+                    marginBottom: "4px",
+                    fontSize: "14px",
+                  }}
+                >
+                  Start Time
+                </label>
+                <input
+                  type="time"
+                  style={{
+                    padding: "8px",
+                    border: "1px solid #ccc",
+                    borderRadius: "4px",
+                    boxSizing: "border-box",
+                    width: "100%",
+                  }}
+                />
+              </Grid>
+              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                <label
+                  style={{
+                    display: "block",
+                    marginBottom: "4px",
+                    fontSize: "14px",
+                  }}
+                >
+                  End Time
+                </label>
+                <input
+                  type="time"
+                  style={{
+                    padding: "8px",
+                    border: "1px solid #ccc",
+                    borderRadius: "4px",
+                    boxSizing: "border-box",
+                    width: "100%",
+                  }}
+                />
+              </Grid>
+            </Grid>
+          </Grid>
         </Grid>
 
         <Divider />
@@ -78,10 +150,12 @@ export default function PickupAddress({ open, handleClose }) {
         <Grid
           container
           spacing={1}
-          sx={{ mb: 2, padding: " 10px 20px 0px 20px" }}
+          sx={{ mb: 2, padding: " 5px 20px 0px 20px" }}
         >
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-            <Typography sx={{fontWeight:550, fontSize:"15px"}}>Billing Personal Details</Typography>
+            <Typography sx={{ fontWeight: 550, fontSize: "15px" }}>
+              Billing Personal Details
+            </Typography>
           </Grid>
           <Grid item xs={2} sm={6} md={6} lg={6} xl={6}>
             <label
@@ -104,6 +178,7 @@ export default function PickupAddress({ open, handleClose }) {
                 boxSizing: "border-box",
                 width: "100%",
               }}
+              defaultValue={"xxxxxxxxxx"}
             />
           </Grid>
           <Grid item xs={2} sm={6} md={6} lg={6} xl={6}>
@@ -129,6 +204,7 @@ export default function PickupAddress({ open, handleClose }) {
                   boxSizing: "border-box",
                   width: "100%",
                 }}
+                defaultValue={"+919854671230"}
               />
               <Button
                 sx={{
@@ -168,6 +244,7 @@ export default function PickupAddress({ open, handleClose }) {
                 border: "1px solid #ccc",
                 borderRadius: "4px",
               }}
+              defaultValue={"xxxx@gmail.com"}
             />
           </Grid>
           <Grid item xs={2} sm={6} md={6} lg={6} xl={6}>
@@ -179,7 +256,7 @@ export default function PickupAddress({ open, handleClose }) {
                 fontSize: "14px",
               }}
             >
-              PAN Number
+              Pan Number
             </label>
             <input
               id="pan"
@@ -198,10 +275,12 @@ export default function PickupAddress({ open, handleClose }) {
         <Grid
           container
           spacing={1}
-          sx={{ mb: 2, padding: " 10px 20px 0px 20px" }}
+          sx={{ mb: 2, padding: " 5px 20px 0px 20px" }}
         >
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-            <Typography sx={{fontWeight:550, fontSize:"15px"}}>Contact Details</Typography>
+            <Typography sx={{ fontWeight: 550, fontSize: "15px" }}>
+              Contact Details
+            </Typography>
           </Grid>
           <Grid item xs={2} sm={6} md={6} lg={6} xl={6}>
             <label
@@ -224,6 +303,7 @@ export default function PickupAddress({ open, handleClose }) {
                 border: "1px solid #ccc",
                 borderRadius: "4px",
               }}
+              defaultValue={"xxxxxxxxxx"}
             />
           </Grid>
           <Grid item xs={2} sm={6} md={6} lg={6} xl={6}>
@@ -247,6 +327,7 @@ export default function PickupAddress({ open, handleClose }) {
                 border: "1px solid #ccc",
                 borderRadius: "4px",
               }}
+              defaultValue={"xxxxx@gmail.com"}
             />
           </Grid>
           <Grid item xs={2} sm={6} md={6} lg={6} xl={6}>
@@ -270,6 +351,7 @@ export default function PickupAddress({ open, handleClose }) {
                 border: "1px solid #ccc",
                 borderRadius: "4px",
               }}
+              defaultValue={"+91"}
             />
           </Grid>{" "}
           <Grid item xs={2} sm={6} md={6} lg={6} xl={6}>
@@ -293,6 +375,7 @@ export default function PickupAddress({ open, handleClose }) {
                 border: "1px solid #ccc",
                 borderRadius: "4px",
               }}
+              defaultValue={"+91"}
             />
           </Grid>{" "}
           <Grid item xs={2} sm={6} md={6} lg={6} xl={6}>
@@ -343,13 +426,13 @@ export default function PickupAddress({ open, handleClose }) {
           </Grid>{" "}
         </Grid>
         <Divider />
-        
+
         <Grid
           container
           spacing={1}
           justifyContent="space-between"
           alignItems="center"
-          sx={{ mb: 2, padding:"10px 20px 0px 20px", }}
+          sx={{ mb: 2, padding: "5px 20px 0px 20px" }}
         >
           <Grid item xs={12} sm={12} md={12} lg={8} xl={8}>
             <Box>
