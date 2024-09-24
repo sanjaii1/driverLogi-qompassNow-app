@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import Electronics from "../../assets/image/electronic.png";
 import Consumables from "../../assets/image/consumables.png";
@@ -17,10 +17,12 @@ export default function OrderManagement() {
   const [selectedItem, setSelectedItem] = useState(null);
   const [selectedLoadItem, setSelectedLoadItem] = useState(null);
 
+  console.log(selectedItem, "askjghjabshb");
+
   const productItem = [
     { name: "Consumables", src: Consumables },
     { name: "Electronics", src: Electronics },
-    { name: "Sports equipment", src: Sports },
+    { name: "Sports Equipment", src: Sports },
     { name: "Clothes Item", src: Clothes },
     { name: "Household Item", src: HouseHold },
     { name: "Other", src: Truck },
@@ -32,6 +34,12 @@ export default function OrderManagement() {
     { name: "Plastic", src: Plastic },
     { name: "Other", src: Truck },
   ];
+
+  const productBoxHandleClick = (itemName) => {
+    setSelectedItem(itemName);
+    setSelectProductCateActive(false);
+    setSelectLoadTypeActive(true);
+  };
 
   return (
     <Box
@@ -116,11 +124,15 @@ export default function OrderManagement() {
                       <Typography
                         sx={{
                           flex: 2,
-                          padding: "2px",
+                          padding: "2px 2px 2px 10px",
                           backgroundColor: "#fff",
                           minHeight: "24px",
+                          fontSize: "13px",
+                          fontWeight: 550,
                         }}
-                      ></Typography>
+                      >
+                        {selectedItem || ""}
+                      </Typography>
 
                       <Typography
                         onClick={() => setSelectProductCateActive(true)}
@@ -170,7 +182,7 @@ export default function OrderManagement() {
                           key={index}
                         >
                           <Box
-                            onClick={() => setSelectedItem(item.name)}
+                            onClick={() => productBoxHandleClick(item.name)}
                             sx={{
                               width: "110px",
                               display: "flex",
@@ -244,11 +256,15 @@ export default function OrderManagement() {
                       <Typography
                         sx={{
                           flex: 2,
-                          padding: "2px",
+                          padding: "2px 2px 2px 10px",
                           backgroundColor: "#fff",
                           minHeight: "24px",
+                          fontSize: "13px",
+                          fontWeight: 550,
                         }}
-                      ></Typography>
+                      >
+                        {selectedLoadItem || ""}
+                      </Typography>
 
                       <Typography
                         onClick={() => setSelectLoadTypeActive(true)}
@@ -340,7 +356,82 @@ export default function OrderManagement() {
                     </Grid>
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                    <Grid container spacing={1}></Grid>
+                    <Grid container spacing={1}>
+                      <Grid item xs={12} sm={8} md={8} lg={8} xl={8}>
+                        <Box sx={{ display: "flex", alignItems: "center" }}>
+                          <Box
+                            sx={{
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              height: "41px",
+                              padding: "0 16px",
+                              backgroundColor: "#4276ed",
+                              borderTopLeftRadius: "4px",
+                              borderBottomLeftRadius: "4px",
+                              color: "#fff",
+                            }}
+                          >
+                            Enter Load Quantity
+                          </Box>
+                          <TextField
+                            inputProps={{
+                              inputMode: "numeric",
+                              pattern: "[0-9]*",
+                            }}
+                            onKeyDown={(e) => {
+                              if (
+                                !/[0-9]/.test(e.key) &&
+                                e.key !== "Backspace" &&
+                                e.key !== "Delete" &&
+                                e.key !== "ArrowLeft" &&
+                                e.key !== "ArrowRight" &&
+                                e.key !== "Tab"
+                              ) {
+                                e.preventDefault();
+                              }
+                            }}
+                            variant="outlined"
+                            sx={{
+                              "& .MuiOutlinedInput-input": {
+                                padding: "8px",
+                                borderRadius: "0px",
+                                border: "1px solid #4276ed",
+                                borderTopRightRadius: "4px",
+                                borderBottomRightRadius: "4px",
+                              },
+                              width: "100px",
+                            }}
+                          />
+                        </Box>
+                      </Grid>
+                      <Grid
+                        item
+                        xs={12}
+                        sm={4}
+                        md={4}
+                        lg={4}
+                        xl={4}
+                        sx={{ display: "flex", justifyContent: "flex-end" }}
+                      >
+                        <Button
+                          onClick={() => setSelectLoadTypeActive(false)}
+                          variant="outlined"
+                          sx={{
+                            textTransform: "capitalize",
+                            fontSize: "13px",
+                            color: "#000000",
+                            borderColor: "#000000",
+                            "&:hover": {
+                              color: "#000000",
+                              borderColor: "#000000",
+                            },
+                          }}
+                        >
+                          Proceed
+                        </Button>
+                      </Grid>
+                    </Grid>
                   </Grid>
                 </Grid>
               </Box>
