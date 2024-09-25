@@ -170,15 +170,16 @@ export default function OrderOverview() {
       </Box>
 
       <Box>
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} sx={{ minHeight: "200px" }}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead sx={{ backgroundColor: "#095ef812" }}>
               <TableRow>
                 <TableCell
                   sx={{
                     whiteSpace: "nowrap",
-                    fontSize: "13px",
                     fontWeight: 550,
+                    fontSize: "12px",
+                    padding: "5px",
                   }}
                 >
                   No
@@ -186,7 +187,8 @@ export default function OrderOverview() {
                 <TableCell
                   sx={{
                     whiteSpace: "nowrap",
-                    fontSize: "13px",
+                    fontSize: "12px",
+                    padding: "5px",
                     fontWeight: 550,
                   }}
                 >
@@ -195,7 +197,8 @@ export default function OrderOverview() {
                 <TableCell
                   sx={{
                     whiteSpace: "nowrap",
-                    fontSize: "13px",
+                    fontSize: "12px",
+                    padding: "5px",
                     fontWeight: 550,
                   }}
                 >
@@ -204,7 +207,8 @@ export default function OrderOverview() {
                 <TableCell
                   sx={{
                     whiteSpace: "nowrap",
-                    fontSize: "13px",
+                    fontSize: "12px",
+                    padding: "5px",
                     fontWeight: 550,
                   }}
                 >
@@ -213,7 +217,8 @@ export default function OrderOverview() {
                 <TableCell
                   sx={{
                     whiteSpace: "nowrap",
-                    fontSize: "13px",
+                    fontSize: "12px",
+                    padding: "5px",
                     fontWeight: 550,
                   }}
                 >
@@ -223,7 +228,8 @@ export default function OrderOverview() {
                   sx={{
                     whiteSpace: "nowrap",
 
-                    fontSize: "13px",
+                    fontSize: "12px",
+                    padding: "5px",
                     fontWeight: 550,
                   }}
                 >
@@ -232,7 +238,8 @@ export default function OrderOverview() {
                 <TableCell
                   sx={{
                     whiteSpace: "nowrap",
-                    fontSize: "13px",
+                    fontSize: "12px",
+                    padding: "5px",
                     fontWeight: 550,
                   }}
                 >
@@ -241,7 +248,8 @@ export default function OrderOverview() {
                 <TableCell
                   sx={{
                     whiteSpace: "nowrap",
-                    fontSize: "13px",
+                    fontSize: "12px",
+                    padding: "5px",
                     fontWeight: 550,
                   }}
                 >
@@ -250,7 +258,8 @@ export default function OrderOverview() {
                 <TableCell
                   sx={{
                     whiteSpace: "nowrap",
-                    fontSize: "13px",
+                    fontSize: "12px",
+                    padding: "5px",
                     fontWeight: 550,
                   }}
                 >
@@ -268,7 +277,7 @@ export default function OrderOverview() {
                       height: "20px",
                       border: "1px solid #cccccc",
 
-                      width: "100px",
+                      width: "90px",
                     }}
                     defaultValue="INV002"
                   />
@@ -299,7 +308,7 @@ export default function OrderOverview() {
                       height: "20px",
                       border: "1px solid #cccccc",
 
-                      width: "100px",
+                      width: "90px",
                     }}
                   />
                 </TableCell>
@@ -307,12 +316,24 @@ export default function OrderOverview() {
                   <input
                     variant="outlined"
                     size="small"
-                    defaultValue="500kg"
+                    defaultValue="500"
                     style={{
                       height: "20px",
                       border: "1px solid #cccccc",
 
-                      width: "100px",
+                      width: "60px",
+                    }}
+                  />
+                  <input
+                    variant="outlined"
+                    size="small"
+                    readOnly
+                    value={"Kg"}
+                    style={{
+                      height: "20px",
+                      border: "1px solid #cccccc",
+
+                      width: "20px",
                     }}
                   />
                 </TableCell>
@@ -363,7 +384,7 @@ export default function OrderOverview() {
                       height: "24px",
                       border: "1px solid #cccccc",
                       borderRadius: "2px",
-                      width: "120px",
+                      width: "110px",
                     }}
                   >
                     <option value="Consumables">Consumables</option>
@@ -382,7 +403,7 @@ export default function OrderOverview() {
                       height: "24px",
                       border: "1px solid #cccccc",
                       borderRadius: "2px",
-                      width: "100px",
+                      width: "90px",
                     }}
                   >
                     <option value="yes">Yes</option>

@@ -70,11 +70,7 @@ export default function Header() {
           md={2.5}
           lg={1.5}
           xl={1.5}
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
+          sx={style.displaFlexCenter}
         >
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <IconButton>
@@ -92,11 +88,7 @@ export default function Header() {
           md={3.1}
           lg={2.1}
           xl={2.1}
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
+          sx={style.displaFlexCenter}
         >
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <IconButton>
@@ -114,27 +106,14 @@ export default function Header() {
           md={0.4}
           lg={0.4}
           xl={0.4}
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
+          sx={style.displaFlexCenter}
         >
           <IconButton>
             <Brightness1Icon sx={{ color: "#095EF8" }} />
           </IconButton>
         </Grid>
       </Grid>
-      <Grid
-        container
-        sx={{
-          background: "white",
-          borderBottom:'1px solid #5855551f',
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding:'5px 20px 5px 20px'
-        }}
-      >
+      <Grid container sx={style.pageHead}>
         <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
           <Typography sx={{ fontSize: "14px", color: "#0000008f" }}>
             Order Management System
@@ -149,7 +128,9 @@ export default function Header() {
           xl={6}
           sx={{ textAlign: "right" }}
         >
-          <Typography sx={{ fontSize: "14px", color: "#0000008f" }}>Welcome guest</Typography>
+          <Typography sx={{ fontSize: "14px", color: "#0000008f" }}>
+            Welcome guest
+          </Typography>
         </Grid>
       </Grid>
     </Box>
