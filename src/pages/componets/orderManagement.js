@@ -13,12 +13,21 @@ import Plastic from "../../assets/image/plastic.png";
 import { Formik, Form, Field } from "formik";
 import AddOrder from "./addOrder";
 
-export default function OrderManagement({ setNewOrderACtive, newOrderActive }) {
+export default function OrderManagement({
+  setNewOrderACtive,
+  newOrderActive,
+  setTableData,
+  tableData,
+  selectedItem,
+  setSelectedItem,
+  selectedLoadItem,
+  setSelectedLoadItem,
+}) {
   const [selectProductCateActive, setSelectProductCateActive] = useState(false);
   const [selectLoadTypeActive, setSelectLoadTypeActive] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null);
-  const [selectedLoadItem, setSelectedLoadItem] = useState(null);
+
   const [openAddOrder, setOpenAddOrder] = React.useState(false);
+  const [loadQuantity, setLoadQuantity] = React.useState(null);
 
   const initialValues = {
     length: "",
@@ -60,7 +69,28 @@ export default function OrderManagement({ setNewOrderACtive, newOrderActive }) {
   const handleCloseAddOrder = () => setOpenAddOrder(false);
 
   const handleSubmit = (values, resetForm) => {
-    console.log("Form Values:", values);
+    const newRow = {
+      id: tableData.length,
+      invoiceNo: values.invoiceNo,
+      loadType: selectedLoadItem,
+      loadQuantity: loadQuantity,
+      actualWeight: values.actualWeight,
+      volumetric: {
+        L: values.length,
+        B: values.breadth,
+        H: values.height,
+      },
+      productCategory: selectedItem,
+      hazmatClass: values.hazmatClass,
+    };
+
+    setTableData((prevData) => {
+      if (prevData[0].id === null) {
+        return [newRow];
+      } else {
+        return [...prevData, newRow];
+      }
+    });
 
     resetForm();
     setOpenAddOrder(true);
@@ -423,12 +453,13 @@ export default function OrderManagement({ setNewOrderACtive, newOrderActive }) {
                               display: "flex",
                               alignItems: "center",
                               justifyContent: "center",
-                              height: "41px",
+                              height: "40.5px",
                               padding: "0 16px",
                               backgroundColor: "#4276ed",
                               borderTopLeftRadius: "4px",
                               borderBottomLeftRadius: "4px",
                               color: "#fff",
+                              fontSize: "12px",
                             }}
                           >
                             Enter Load Quantity
@@ -438,6 +469,8 @@ export default function OrderManagement({ setNewOrderACtive, newOrderActive }) {
                               inputMode: "numeric",
                               pattern: "[0-9]*",
                             }}
+                            value={loadQuantity || ""}
+                            onChange={(e) => setLoadQuantity(e.target.value)}
                             onKeyDown={(e) => restrictToNumbers(e)}
                             variant="outlined"
                             sx={{

@@ -19,7 +19,14 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
-export default function BookConfirm({ open, handleClose, setNewOrderACtive }) {
+export default function BookConfirm({
+  open,
+  handleClose,
+  setNewOrderACtive,
+  setTableData,
+  setSelectedLoadItem,
+  setSelectedItem,
+}) {
   return (
     <Modal
       open={open}
@@ -376,6 +383,20 @@ export default function BookConfirm({ open, handleClose, setNewOrderACtive }) {
                           onClick={() => {
                             setNewOrderACtive(false);
                             handleClose();
+                            setTableData([
+                              {
+                                id: null,
+                                invoiceNo: "",
+                                loadType: "",
+                                loadQuantity: null,
+                                actualWeight: null,
+                                volumetric: { L: null, B: null, H: null },
+                                productCategory: "",
+                                hazmatClass: "",
+                              },
+                            ]);
+                            setSelectedLoadItem(null);
+                            setSelectedItem(null);
                           }}
                         >
                           Create an another Order

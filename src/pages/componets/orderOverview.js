@@ -20,19 +20,14 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
 import SettingsIcon from "@mui/icons-material/Settings";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import TextField from "@mui/material/TextField";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
 import EditIcon from "@mui/icons-material/Edit";
 
-export default function OrderOverview() {
+export default function OrderOverview({ tableData }) {
   return (
     <Box
       sx={{
         border: "1px solid #5855551f",
         borderRadius: "4px",
-        // padding: "16px",
         boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
         margin: "16px auto",
         backgroundColor: "#fff",
@@ -268,209 +263,205 @@ export default function OrderOverview() {
               </TableRow>
             </TableHead>
             <TableBody>
-              <TableRow>
-                <TableCell sx={{ padding: "5px" }}>1</TableCell>
-                <TableCell sx={{ padding: "5px" }}>
-                  <input
-                    variant="outlined"
-                    style={{
-                      height: "20px",
-                      border: "1px solid #cccccc",
-
-                      width: "90px",
-                    }}
-                    defaultValue="INV002"
-                  />
-                </TableCell>
-                <TableCell sx={{ padding: "5px" }}>
-                  <select
-                    name="load"
-                    id="load"
-                    style={{
-                      height: "24px",
-                      border: "1px solid #cccccc",
-
-                      width: "100px",
-                    }}
-                  >
-                    <option value="Carton">Carton Box</option>
-                    <option value="Wooden">Wooden Box</option>
-                    <option value="Plastic">Plastic</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </TableCell>
-                <TableCell sx={{ padding: "5px" }}>
-                  <input
-                    variant="outlined"
-                    size="small"
-                    defaultValue="10"
-                    style={{
-                      height: "20px",
-                      border: "1px solid #cccccc",
-
-                      width: "90px",
-                    }}
-                  />
-                </TableCell>
-                <TableCell sx={{ padding: "5px" }}>
-                  <input
-                    variant="outlined"
-                    size="small"
-                    defaultValue="500"
-                    style={{
-                      height: "20px",
-                      border: "1px solid #cccccc",
-
-                      width: "60px",
-                    }}
-                  />
-                  <input
-                    variant="outlined"
-                    size="small"
-                    readOnly
-                    value={"Kg"}
-                    style={{
-                      height: "20px",
-                      border: "1px solid #cccccc",
-
-                      width: "20px",
-                    }}
-                  />
-                </TableCell>
-                <TableCell sx={{ padding: "5px" }}>
-                  {" "}
-                  <Box sx={{ display: "flex" }}>
+              {tableData.map((row, index) => (
+                <TableRow key={row.id}>
+                  <TableCell sx={{ padding: "5px" }}>{index + 1}</TableCell>
+                  <TableCell sx={{ padding: "5px" }}>
                     <input
                       variant="outlined"
-                      size="small"
-                      placeholder="L"
                       style={{
                         height: "20px",
                         border: "1px solid #cccccc",
-
-                        width: "40px",
+                        width: "90px",
+                      }}
+                      defaultValue={row.invoiceNo}
+                    />
+                  </TableCell>
+                  <TableCell sx={{ padding: "5px" }}>
+                    <select
+                      name="load"
+                      id="load"
+                      defaultValue={row.loadType}
+                      style={{
+                        height: "24px",
+                        border: "1px solid #cccccc",
+                        width: "100px",
+                      }}
+                    >
+                      <option value="Carton">Carton Box</option>
+                      <option value="Wooden">Wooden Box</option>
+                      <option value="Plastic">Plastic</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </TableCell>
+                  <TableCell sx={{ padding: "5px" }}>
+                    <input
+                      variant="outlined"
+                      size="small"
+                      defaultValue={row.loadQuantity}
+                      style={{
+                        height: "20px",
+                        border: "1px solid #cccccc",
+                        width: "90px",
+                      }}
+                    />
+                  </TableCell>
+                  <TableCell sx={{ padding: "5px" }}>
+                    <input
+                      variant="outlined"
+                      size="small"
+                      defaultValue={row.actualWeight}
+                      style={{
+                        height: "20px",
+                        border: "1px solid #cccccc",
+                        width: "60px",
                       }}
                     />
                     <input
                       variant="outlined"
                       size="small"
-                      placeholder="B"
+                      readOnly
+                      value="Kg"
                       style={{
                         height: "20px",
                         border: "1px solid #cccccc",
-
-                        width: "40px",
+                        width: "20px",
                       }}
                     />
-                    <input
-                      variant="outlined"
-                      size="small"
-                      placeholder="H"
+                  </TableCell>
+                  <TableCell sx={{ padding: "5px" }}>
+                    <Box sx={{ display: "flex" }}>
+                      <input
+                        variant="outlined"
+                        size="small"
+                        defaultValue={row.volumetric.L}
+                        placeholder="L"
+                        style={{
+                          height: "20px",
+                          border: "1px solid #cccccc",
+                          width: "40px",
+                        }}
+                      />
+                      <input
+                        variant="outlined"
+                        size="small"
+                        defaultValue={row.volumetric.B}
+                        placeholder="B"
+                        style={{
+                          height: "20px",
+                          border: "1px solid #cccccc",
+                          width: "40px",
+                        }}
+                      />
+                      <input
+                        variant="outlined"
+                        size="small"
+                        defaultValue={row.volumetric.H}
+                        placeholder="H"
+                        style={{
+                          height: "20px",
+                          border: "1px solid #cccccc",
+                          width: "40px",
+                        }}
+                      />
+                    </Box>
+                  </TableCell>
+                  <TableCell sx={{ padding: "5px" }}>
+                    <select
+                      name="product"
+                      id="product"
+                      defaultValue={row.productCategory}
                       style={{
-                        height: "20px",
+                        height: "24px",
                         border: "1px solid #cccccc",
-
-                        width: "40px",
-                      }}
-                    />
-                  </Box>
-                </TableCell>
-                <TableCell sx={{ padding: "5px" }}>
-                  {" "}
-                  <select
-                    name="product"
-                    id="product"
-                    style={{
-                      height: "24px",
-                      border: "1px solid #cccccc",
-                      borderRadius: "2px",
-                      width: "110px",
-                    }}
-                  >
-                    <option value="Consumables">Consumables</option>
-                    <option value="Electronics">Electronics</option>
-                    <option value="sports">Sports Equipment</option>
-                    <option value="audi">Clothes Item</option>
-                    <option value="audi">Household Item </option>
-                    <option value="audi">Other</option>
-                  </select>
-                </TableCell>
-                <TableCell sx={{ padding: "5px" }}>
-                  <select
-                    name="haz"
-                    id="haz"
-                    style={{
-                      height: "24px",
-                      border: "1px solid #cccccc",
-                      borderRadius: "2px",
-                      width: "90px",
-                    }}
-                  >
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                  </select>
-                </TableCell>
-                <TableCell sx={{ padding: "5px" }}>
-                  <Box sx={{ display: "flex" }}>
-                    <IconButton
-                      sx={{
-                        width: 25,
-                        height: 25,
-                        borderRadius: 0,
-                        mr: 1,
-                        border: "1px solid #ccc",
-                        backgroundColor: "#f5f5f5",
+                        width: "110px",
                       }}
                     >
-                      <EditIcon
-                        sx={{ fontSize: 20, color: "rgba(0, 0, 0, 0.7)" }}
-                      />
-                    </IconButton>{" "}
-                    <IconButton
-                      sx={{
-                        width: 25,
-                        height: 25,
-                        borderRadius: 0,
-                        mr: 1,
-                        border: "1px solid #ccc",
-                        backgroundColor: "#f5f5f5",
+                      <option value="Consumables">Consumables</option>
+                      <option value="Electronics">Electronics</option>
+                      <option value="Sports Equipment">Sports Equipment</option>
+                      <option value="Clothes Item">Clothes Item</option>
+                      <option value="Household Item">Household Item</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </TableCell>
+                  <TableCell sx={{ padding: "5px" }}>
+                    <select
+                      name="haz"
+                      id="haz"
+                      defaultValue={row.hazmatClass}
+                      style={{
+                        height: "24px",
+                        border: "1px solid #cccccc",
+                        width: "90px",
                       }}
                     >
-                      <DeleteOutlineIcon
-                        sx={{ fontSize: 20, color: "rgba(0, 0, 0, 0.7)" }}
-                      />
-                    </IconButton>{" "}
-                    <IconButton
-                      sx={{
-                        width: 25,
-                        height: 25,
-                        borderRadius: 0,
-                        mr: 1,
-                        border: "1px solid #ccc",
-                        backgroundColor: "#f5f5f5",
-                      }}
-                    >
-                      <AddIcon
-                        sx={{ fontSize: 20, color: "rgba(0, 0, 0, 0.7)" }}
-                      />
-                    </IconButton>{" "}
-                    <IconButton
-                      sx={{
-                        width: 25,
-                        height: 25,
-                        borderRadius: 0,
-                        mr: 1,
-                        border: "1px solid #ccc",
-                        backgroundColor: "#f5f5f5",
-                      }}
-                    >
-                      <MoreVertIcon
-                        sx={{ fontSize: 20, color: "rgba(0, 0, 0, 0.7)" }}
-                      />
-                    </IconButton>
-                  </Box>
-                </TableCell>
-              </TableRow>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                    </select>
+                  </TableCell>
+                  <TableCell sx={{ padding: "5px" }}>
+                    <Box sx={{ display: "flex" }}>
+                      <IconButton
+                        sx={{
+                          width: 25,
+                          height: 25,
+                          borderRadius: 0,
+                          mr: 1,
+                          border: "1px solid #ccc",
+                          backgroundColor: "#f5f5f5",
+                        }}
+                      >
+                        <EditIcon
+                          sx={{ fontSize: 20, color: "rgba(0, 0, 0, 0.7)" }}
+                        />
+                      </IconButton>{" "}
+                      <IconButton
+                        sx={{
+                          width: 25,
+                          height: 25,
+                          borderRadius: 0,
+                          mr: 1,
+                          border: "1px solid #ccc",
+                          backgroundColor: "#f5f5f5",
+                        }}
+                      >
+                        <DeleteOutlineIcon
+                          sx={{ fontSize: 20, color: "rgba(0, 0, 0, 0.7)" }}
+                        />
+                      </IconButton>{" "}
+                      <IconButton
+                        sx={{
+                          width: 25,
+                          height: 25,
+                          borderRadius: 0,
+                          mr: 1,
+                          border: "1px solid #ccc",
+                          backgroundColor: "#f5f5f5",
+                        }}
+                      >
+                        <AddIcon
+                          sx={{ fontSize: 20, color: "rgba(0, 0, 0, 0.7)" }}
+                        />
+                      </IconButton>{" "}
+                      <IconButton
+                        sx={{
+                          width: 25,
+                          height: 25,
+                          borderRadius: 0,
+                          mr: 1,
+                          border: "1px solid #ccc",
+                          backgroundColor: "#f5f5f5",
+                        }}
+                      >
+                        <MoreVertIcon
+                          sx={{ fontSize: 20, color: "rgba(0, 0, 0, 0.7)" }}
+                        />
+                      </IconButton>
+                    </Box>
+                  </TableCell>
+                </TableRow>
+              ))}
             </TableBody>
           </Table>
         </TableContainer>

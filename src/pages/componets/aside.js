@@ -21,7 +21,7 @@ import PickupAddress from "./pickupAddress";
 import DeliveryAddress from "./deliveryAddress";
 import BookConfirm from "./bookConfirm";
 
-export default function Aside({ setNewOrderACtive, newOrderActive }) {
+export default function Aside({ setNewOrderACtive, newOrderActive,setTableData,setSelectedLoadItem,setSelectedItem }) {
   const [openPickUp, setOpenPickUp] = React.useState(false);
   const [openDelivery, setOpenDelivery] = React.useState(false);
   const [openBookConfirm, setOpenBookConfirm] = React.useState(false);
@@ -448,6 +448,9 @@ export default function Aside({ setNewOrderACtive, newOrderActive }) {
         open={openBookConfirm}
         handleClose={handleCloseBookConfirm}
         setNewOrderACtive={setNewOrderACtive}
+        setTableData={setTableData}
+        setSelectedLoadItem={setSelectedLoadItem}
+        setSelectedItem={setSelectedItem}
       />
     </Box>
   );
