@@ -311,7 +311,7 @@ export default function OrderOverview({ tableData }) {
                       }}
                     />
                   </TableCell>
-                  <TableCell sx={{ padding: "5px" }}>
+                  <TableCell sx={{ padding: "5px",display:"flex" }}>
                     <input
                       variant="outlined"
                       size="small"
